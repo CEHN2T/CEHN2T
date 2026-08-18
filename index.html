@@ -62,32 +62,42 @@ nav a.active:after{content:"";height:2px;background:var(--orange);position:absol
 .status{font-size:8.5px;line-height:1.35;font-weight:700;color:#6b7581;margin:0 0 9px}
 .more{font-size:9.8px;font-weight:700;color:var(--blue)}
 
-/* RECHERCHE / TERRITOIRES */
-.research{padding:26px 0 28px;background:linear-gradient(90deg,#f5f9fd,#edf4fa);border-top:1px solid #edf1f4}
-.research-row{display:grid;grid-template-columns:245px 1fr 220px;gap:24px;align-items:center}
-.research .intro{margin-bottom:7px}
-.checks{list-style:none;margin:8px 0 12px;padding:0;font-size:10px}
+
+/* RECHERCHE / TERRITOIRES — CARTE INTERACTIVE */
+.research{padding:30px 0 32px;background:linear-gradient(90deg,#f5f9fd,#edf4fa);border-top:1px solid #edf1f4}
+.research-row{display:grid;grid-template-columns:265px minmax(0,1fr);gap:30px;align-items:stretch}
+.research-copy{align-self:center}
+.research .intro{margin-bottom:9px;font-size:10px;line-height:1.55}
+.checks{list-style:none;margin:10px 0 14px;padding:0;font-size:10px}
 .checks li{margin:4px 0}
 .checks li:before{content:"✓";margin-right:7px;color:var(--blue);font-weight:800}
-.map-box{height:230px;display:flex;align-items:center;justify-content:center;position:relative;overflow:visible}
-.map-box img{width:100%;height:100%;object-fit:contain;opacity:.15;filter:grayscale(1) sepia(.14) hue-rotate(170deg) saturate(3)}
-.pin{position:absolute;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:#1974c9;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.14);z-index:2}
-.qc{left:25%;top:28%}
-.gua{left:30.3%;top:47.5%}
-.mart{left:30.8%;top:50.5%}
-.be{left:50.8%;top:27.2%}
-.fr{left:50.9%;top:29.7%}
-.ch{left:51.5%;top:32.0%}
-.side{display:grid;gap:10px}
-.legend,.territory{background:white;border:1px solid #e3e9ef;border-radius:7px;box-shadow:0 5px 15px rgba(15,43,75,.06)}
-.legend{padding:16px 16px}
-.legend h4{font-size:11.5px;margin:0 0 10px;color:var(--blue)}
-.legend-row{font-size:9px;line-height:1.45;display:flex;align-items:center;gap:8px;margin:7px 0}
-.legend-row i{width:8px;height:8px;border-radius:50%;display:inline-block;background:#1974c9}
-.territory{padding:16px 16px}
-.territory h4{font-family:var(--serif);font-size:13px;line-height:1.15;margin:0 0 9px;color:var(--blue)}
-.territory p{font-size:8.8px;line-height:1.5;margin:4px 0}
-.territory .more{display:block;margin-top:6px}
+.research-map-shell{position:relative;min-height:355px;overflow:hidden;border:1px solid rgba(8,47,97,.12);border-radius:16px;background:#eef4f8;box-shadow:0 16px 38px rgba(10,40,72,.10)}
+#researchMap{width:100%;height:355px;background:#eef4f8}
+.map-stat,.map-legend-glass{border:1px solid rgba(255,255,255,.74);background:rgba(255,255,255,.88);backdrop-filter:blur(9px);box-shadow:0 8px 22px rgba(8,47,97,.10)}
+.map-stats{position:absolute;z-index:500;top:12px;right:12px;display:grid;gap:7px}
+.map-stat{display:flex;align-items:baseline;gap:6px;padding:9px 11px;border-radius:11px;color:var(--blue)}
+.map-stat-target strong{color:#2a9d78}
+.map-stat strong{font-family:var(--serif);font-size:20px;line-height:1}
+.map-stat span{font-size:8.7px;font-weight:700;line-height:1.25}
+.map-stat span small{display:block;margin-top:2px;color:#738397;font-size:7.4px;font-weight:600;line-height:1.2}
+.map-legend-glass{left:12px;bottom:12px;display:grid;gap:5px;padding:8px 10px;border-radius:10px;color:#243f58;font-size:8.5px;font-weight:700}
+.map-legend-glass div{display:flex;align-items:center;gap:6px}
+.map-legend-glass small{display:block;max-width:180px;padding-top:2px;color:#607286;font-size:7.8px;line-height:1.35;font-weight:500}
+.map-dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.map-dot.red{background:#df3b36;box-shadow:0 0 0 3px rgba(223,59,54,.13)}
+.map-dot.green{background:#2a9d78;box-shadow:0 0 0 3px rgba(42,157,120,.12)}
+.map-hotspot,.map-target{position:relative;display:block;width:100%;height:100%}
+.map-hotspot__core{position:absolute;left:50%;top:50%;width:9px;height:9px;transform:translate(-50%,-50%);border-radius:50%;background:#df3b36;border:1.5px solid #fff;box-shadow:0 3px 9px rgba(182,37,33,.34);z-index:3}
+.map-hotspot__halo{position:absolute;left:50%;top:50%;width:17px;height:17px;transform:translate(-50%,-50%) scale(.5);border:1.4px solid rgba(223,59,54,.72);border-radius:50%;animation:homeHotspot 2.8s ease-out infinite;animation-delay:var(--delay)}
+.map-hotspot__halo--2{animation-delay:calc(var(--delay) + 1.4s)}
+.map-target__core{position:absolute;left:50%;top:50%;width:6px;height:6px;transform:translate(-50%,-50%);border-radius:50%;background:#2a9d78;border:1px solid #fff;z-index:2}
+.map-target__glow{position:absolute;left:50%;top:50%;width:14px;height:14px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(42,157,120,.18);box-shadow:0 0 10px rgba(42,157,120,.26);animation:homeTarget 4.4s ease-in-out infinite;animation-delay:var(--delay)}
+@keyframes homeHotspot{0%{transform:translate(-50%,-50%) scale(.55);opacity:.9}75%,100%{transform:translate(-50%,-50%) scale(2);opacity:0}}
+@keyframes homeTarget{0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(.82)}50%{opacity:.95;transform:translate(-50%,-50%) scale(1.25)}}
+.leaflet-tooltip{border:1px solid rgba(8,47,97,.10)!important;border-radius:8px!important;background:rgba(255,255,255,.96)!important;color:#173a5a!important;padding:6px 8px!important;box-shadow:0 6px 16px rgba(8,47,97,.10)!important;font-size:9px!important;line-height:1.35!important}
+.leaflet-control-attribution{font-size:7px!important;background:rgba(255,255,255,.75)!important}
+@media(max-width:980px){.research-row{grid-template-columns:1fr}.research-map-shell,#researchMap{height:340px;min-height:340px}}
+@media(prefers-reduced-motion:reduce){.map-hotspot__halo,.map-target__glow{animation:none!important}}
 
 /* UNIQUE UPCOMING EVENT */
 .events{padding:15px 0 16px;background:#fff}
@@ -173,6 +183,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
 }
 
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -274,10 +285,10 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
 
 <section class="research">
   <div class="wrap research-row">
-    <div>
+    <div class="research-copy">
       <div class="eyebrow">Collaborer avec nous</div>
       <h2 class="title">Contribuer à nos<br>recherches</h2>
-      <p class="intro">Depuis 2024, nos collectes documentent plusieurs contextes francophones. D’autres terrains pourront progressivement rejoindre ce maillage.</p>
+      <p class="intro">Depuis 2024, nos collectes documentent plusieurs contextes francophones. La francophonie constitue notre espace prioritaire de développement, tout en restant ouverts à des recherches et collectes dans d’autres territoires à l’international.</p>
       <ul class="checks">
         <li>Proposer un terrain</li>
         <li>Participer à une collecte</li>
@@ -287,27 +298,24 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
       <a target="_self" class="btn" href="./contact.html">Proposer une collaboration →</a>
     </div>
 
-    <div class="map-box" aria-label="Territoires où des données ont été collectées depuis 2024">
-      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Blank_world_map_Robinson_projection.svg" alt="Carte du monde">
-      <span class="pin qc" title="Québec"></span>
-      <span class="pin gua" title="Guadeloupe"></span>
-      <span class="pin mart" title="Martinique"></span>
-      <span class="pin be" title="Belgique"></span>
-      <span class="pin fr" title="France"></span>
-      <span class="pin ch" title="Suisse"></span>
-    </div>
+    <div class="research-map-shell">
+      <div id="researchMap" aria-label="Carte interactive des terrains du CEHN2T"></div>
 
-    <div class="side">
-      <div class="legend">
-        <h4>Terrains documentés</h4>
-        <div class="legend-row"><i></i>Données collectées depuis 2024</div>
+      <div class="map-stats">
+        <div class="map-stat">
+          <strong>6</strong>
+          <span>terrains documentés<br><small>données en consolidation</small></span>
+        </div>
+        <div class="map-stat map-stat-target">
+          <strong>21</strong>
+          <span>territoires ciblés en priorité</span>
+        </div>
       </div>
-      <div class="territory">
-        <h4>6 territoires francophones</h4>
-        <p><b>Amérique du Nord :</b> Québec</p>
-        <p><b>Antilles françaises :</b> Martinique, Guadeloupe</p>
-        <p><b>Europe :</b> France, Belgique, Suisse</p>
-        <a target="_self" class="more" href="./recherche.html">Voir nos recherches →</a>
+
+      <div class="map-legend-glass">
+        <div><span class="map-dot red"></span>Données collectées — consolidation en cours</div>
+        <div><span class="map-dot green"></span>Francophonie ciblée en priorité</div>
+        <small>Ouverture à d’autres territoires internationaux</small>
       </div>
     </div>
   </div>
@@ -398,5 +406,75 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
 </footer>
 
 <!-- Navigation interne CEHN2T : chemins relatifs vérifiés -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  var el = document.getElementById('researchMap');
+  if(!el || typeof L === 'undefined') return;
+
+  var map = L.map(el,{
+    zoomControl:true,
+    scrollWheelZoom:false,
+    doubleClickZoom:true,
+    attributionControl:true,
+    worldCopyJump:false,
+    minZoom:2,
+    maxZoom:7,
+    zoomSnap:.25
+  }).setView([19,-18],2.35);
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+    maxZoom:19,
+    subdomains:'abcd',
+    attribution:'&copy; OpenStreetMap contributors &copy; CARTO'
+  }).addTo(map);
+
+  var documented=[
+    [47.75,7.33,'Alsace'],
+    [45.50,-73.57,'Montréal, Québec'],
+    [14.64,-61.02,'Martinique'],
+    [16.27,-61.55,'Guadeloupe'],
+    [50.85,4.35,'Belgique'],
+    [46.82,8.23,'Suisse']
+  ];
+
+  var targets=[
+    [14.5,-14.5,'Sénégal'],[17.6,-3,'Mali'],[12.3,-1.5,'Burkina Faso'],
+    [10.5,-10.5,'Guinée'],[7.5,-5.5,"Côte d'Ivoire"],[8.6,1.2,'Togo'],
+    [9.3,2.3,'Bénin'],[17.6,8,'Niger'],[15.4,18.7,'Tchad'],[7.4,12.3,'Cameroun'],
+    [.4,11.5,'Gabon'],[-.2,15.8,'Congo'],[-4,23,'RD Congo'],[6.6,20.9,'Centrafrique'],
+    [-18.9,47.5,'Madagascar'],[11.6,43.1,'Djibouti'],[34,9,'Tunisie'],
+    [32,-5,'Maroc'],[28,3,'Algérie'],[19,-72.3,'Haïti'],[49.6,6.1,'Luxembourg']
+  ];
+
+  function hotIcon(delay){
+    return L.divIcon({
+      className:'',
+      html:'<span class="map-hotspot" style="--delay:'+delay+'s"><span class="map-hotspot__halo"></span><span class="map-hotspot__halo map-hotspot__halo--2"></span><span class="map-hotspot__core"></span></span>',
+      iconSize:[28,28],iconAnchor:[14,14]
+    });
+  }
+
+  function targetIcon(delay){
+    return L.divIcon({
+      className:'',
+      html:'<span class="map-target" style="--delay:'+delay+'s"><span class="map-target__glow"></span><span class="map-target__core"></span></span>',
+      iconSize:[16,16],iconAnchor:[8,8]
+    });
+  }
+
+  documented.forEach(function(s,i){
+    L.marker([s[0],s[1]],{icon:hotIcon((i%3)*.35)}).addTo(map)
+      .bindTooltip('<strong>'+s[2]+'</strong><br>Données collectées depuis 2024 — corpus en cours de consolidation',{direction:'top',offset:[0,-9],opacity:1});
+  });
+
+  targets.forEach(function(s,i){
+    L.marker([s[0],s[1]],{icon:targetIcon((i%7)*.28)}).addTo(map)
+      .bindTooltip('<strong>'+s[2]+'</strong><br>Territoire francophone ciblé en priorité',{direction:'top',offset:[0,-7],opacity:1});
+  });
+})();
+</script>
+
 </body>
 </html>
