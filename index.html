@@ -613,6 +613,138 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
   display:none;
 }
 
+
+/* V14 — CARROUSEL ÉVÈNEMENTS */
+.events{
+  padding:17px 0 20px;
+  background:#fff;
+}
+.events-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:10px;
+}
+.events-head b{
+  color:var(--orange);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.events-head-actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.events-head-actions > a{
+  font-size:8px;
+  font-weight:700;
+}
+.events-carousel{
+  position:relative;
+  overflow:hidden;
+  border-radius:8px;
+}
+.events-track{
+  display:flex;
+  width:100%;
+  transition:transform .55s cubic-bezier(.22,.61,.36,1);
+  will-change:transform;
+}
+.event-slide{
+  flex:0 0 100%;
+  display:grid;
+  grid-template-columns:78px minmax(0,1fr) 285px;
+  min-height:142px;
+  overflow:hidden;
+  border:1px solid #d8e1e8;
+  border-radius:8px;
+  background:#fff;
+}
+.event-slide .event-date{
+  padding-top:21px;
+}
+.event-slide .event-photo{
+  min-height:142px;
+}
+.event-slide .event-info{
+  padding:20px 20px 16px;
+}
+.event-slide .event-info h3{
+  font-size:18px;
+}
+.carousel-controls{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.carousel-btn{
+  width:26px;
+  height:26px;
+  display:grid;
+  place-items:center;
+  border:1px solid #d7e0e8;
+  border-radius:50%;
+  background:#fff;
+  color:var(--blue);
+  cursor:pointer;
+  font-size:13px;
+  line-height:1;
+  transition:background .2s ease,border-color .2s ease,color .2s ease;
+}
+.carousel-btn:hover,
+.carousel-btn:focus-visible{
+  border-color:var(--blue);
+  background:var(--blue);
+  color:#fff;
+}
+.carousel-dots{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.carousel-dot{
+  width:7px;
+  height:7px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#ccd6df;
+  cursor:pointer;
+}
+.carousel-dot.active{
+  width:19px;
+  border-radius:999px;
+  background:var(--orange);
+}
+@media(prefers-reduced-motion:reduce){
+  .events-track{transition:none}
+}
+@media(max-width:760px){
+  .events-head{
+    align-items:flex-start;
+  }
+  .events-head-actions{
+    flex-direction:column;
+    align-items:flex-end;
+    gap:6px;
+  }
+  .event-slide{
+    grid-template-columns:68px minmax(0,1fr);
+  }
+  .event-slide .event-photo{
+    min-height:120px;
+  }
+  .event-slide .event-info{
+    grid-column:1 / -1;
+    padding:14px 15px 16px;
+  }
+  .event-slide .event-info h3{
+    font-size:17px;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
@@ -842,28 +974,78 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
   </div>
 </section>
 
-<section class="events">
+<section class="events" aria-labelledby="events-title">
   <div class="wrap">
     <div class="events-head">
-      <b>Évènement à venir</b>
-      <a target="_self" href="./evenements.html">Voir tous les évènements →</a>
+      <b id="events-title">Évènements à venir</b>
+
+      <div class="events-head-actions">
+        <div class="carousel-controls" aria-label="Navigation du carrousel">
+          <button class="carousel-btn prev" type="button" aria-label="Évènement précédent">←</button>
+          <div class="carousel-dots" aria-label="Choisir un évènement">
+            <button class="carousel-dot active" type="button" aria-label="Atelier ChatGPT — 4 septembre 2026" aria-current="true"></button>
+            <button class="carousel-dot" type="button" aria-label="JRE–RIICLAS 2026 — 5 octobre 2026"></button>
+          </div>
+          <button class="carousel-btn next" type="button" aria-label="Évènement suivant">→</button>
+        </div>
+
+        <a target="_self" href="./evenements.html">Voir tous les évènements →</a>
+      </div>
     </div>
 
-    <article class="event-single">
-      <div class="event-date">
-        <strong>05</strong>
-        <span>oct.<br>2026</span>
+    <div class="events-carousel" aria-roledescription="carrousel">
+      <div class="events-track">
+
+        <article class="event-slide" data-date="2026-09-04" aria-label="1 sur 2">
+          <div class="event-date">
+            <strong>04</strong>
+            <span>sept.<br>2026</span>
+          </div>
+
+          <div class="event-photo">
+            <img
+              src="https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Participants à un atelier collaboratif autour des usages numériques"
+              loading="lazy">
+          </div>
+
+          <div class="event-info">
+            <small>UP19 · Université Populaire de Mulhouse · 4 septembre 2026</small>
+            <h3>Atelier ChatGPT — Initiation à l’usage responsable de l’IA</h3>
+            <p>
+              Un atelier pratique associant découverte de ChatGPT, expérimentation guidée,
+              esprit critique, protection des données et réflexion collective sur les enjeux de l’IA.
+            </p>
+            <a target="_self" class="more" href="./evenements.html">Voir l’évènement →</a>
+          </div>
+        </article>
+
+        <article class="event-slide" data-date="2026-10-05" aria-label="2 sur 2">
+          <div class="event-date">
+            <strong>05</strong>
+            <span>oct.<br>2026</span>
+          </div>
+
+          <div class="event-photo">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Guadeloupe_Les_Abymes_carrefour_de_Lacroix%2C_sur_le_boulevard_des_H%C3%A9ros_1.jpg/1280px-Guadeloupe_Les_Abymes_carrefour_de_Lacroix%2C_sur_le_boulevard_des_H%C3%A9ros_1.jpg"
+              alt="Les Abymes, Guadeloupe"
+              loading="lazy">
+          </div>
+
+          <div class="event-info">
+            <small>Les Abymes, Guadeloupe · 5–9 octobre 2026</small>
+            <h3>JRE–RIICLAS 2026</h3>
+            <p>
+              Journées de la Recherche en Éducation — Recherches interdisciplinaires sur les interactions
+              entre cultures, langues et apprentissages scolaires.
+            </p>
+            <a target="_self" class="more" href="./evenements.html">Voir l’évènement →</a>
+          </div>
+        </article>
+
       </div>
-      <div class="event-photo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Guadeloupe_Les_Abymes_carrefour_de_Lacroix%2C_sur_le_boulevard_des_H%C3%A9ros_1.jpg/1280px-Guadeloupe_Les_Abymes_carrefour_de_Lacroix%2C_sur_le_boulevard_des_H%C3%A9ros_1.jpg" alt="Les Abymes, Guadeloupe">
-      </div>
-      <div class="event-info">
-        <small>Les Abymes, Guadeloupe · 5–9 octobre 2026</small>
-        <h3>JRE–RIICLAS 2026</h3>
-        <p>Journées de la Recherche en Éducation — Recherches interdisciplinaires sur les interactions entre cultures, langues et apprentissages scolaires.</p>
-        <a target="_self" class="more" href="./evenements.html">Voir l’évènement →</a>
-      </div>
-    </article>
+    </div>
   </div>
 </section>
 
@@ -1026,6 +1208,114 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
 
   // Garde une vue assez large pour rendre visibles les territoires du Pacifique
   if (map.getZoom() > 1.8) map.setZoom(1.8);
+})();
+</script>
+
+
+<script>
+(() => {
+  const carousel = document.querySelector('.events-carousel');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('.events-track');
+  const dotsContainer = document.querySelector('.carousel-dots');
+  const prev = document.querySelector('.carousel-btn.prev');
+  const next = document.querySelector('.carousel-btn.next');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /*
+   * Les évènements sont classés automatiquement :
+   * 1. évènements à venir, du plus proche au plus lointain ;
+   * 2. évènements passés, du plus récent au plus ancien.
+   */
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const slides = Array.from(track.querySelectorAll('.event-slide'));
+
+  slides.sort((a, b) => {
+    const dateA = new Date(a.dataset.date + 'T00:00:00');
+    const dateB = new Date(b.dataset.date + 'T00:00:00');
+
+    const aFuture = dateA >= today;
+    const bFuture = dateB >= today;
+
+    if (aFuture && !bFuture) return -1;
+    if (!aFuture && bFuture) return 1;
+
+    return aFuture ? dateA - dateB : dateB - dateA;
+  });
+
+  slides.forEach((slide, i) => {
+    slide.setAttribute('aria-label', `${i + 1} sur ${slides.length}`);
+    track.appendChild(slide);
+  });
+
+  // Reconstruire les points dans le même ordre que les évènements triés.
+  dotsContainer.innerHTML = '';
+  const dots = slides.map((slide, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Afficher l’évènement ${i + 1}`);
+    if (i === 0) dot.setAttribute('aria-current', 'true');
+    dotsContainer.appendChild(dot);
+    return dot;
+  });
+
+  let index = 0;
+  let timer = null;
+
+  function goTo(nextIndex) {
+    index = (nextIndex + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach((dot, i) => {
+      const active = i === index;
+      dot.classList.toggle('active', active);
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  }
+
+  function stopAuto() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function startAuto() {
+    if (reduceMotion || slides.length < 2) return;
+    stopAuto();
+    timer = setInterval(() => goTo(index + 1), 6500);
+  }
+
+  prev?.addEventListener('click', () => {
+    goTo(index - 1);
+    startAuto();
+  });
+
+  next?.addEventListener('click', () => {
+    goTo(index + 1);
+    startAuto();
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goTo(i);
+      startAuto();
+    });
+  });
+
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+  carousel.addEventListener('focusin', stopAuto);
+  carousel.addEventListener('focusout', startAuto);
+
+  // Le premier slide affiché est automatiquement le prochain évènement.
+  goTo(0);
+  startAuto();
 })();
 </script>
 
