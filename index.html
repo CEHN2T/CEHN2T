@@ -39,7 +39,7 @@ nav a.active:after{content:"";height:2px;background:var(--orange);position:absol
 /* CHAMPS D'ACTION */
 .domains{padding:22px 0 28px}
 .domain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.domain{min-height:235px;border:1px solid #e4e9ee;border-radius:8px;overflow:hidden;background:#fff;text-align:center;box-shadow:0 7px 20px rgba(24,50,79,.07);padding-bottom:18px}
+.domain{display:flex;flex-direction:column;min-height:235px;border:1px solid #e4e9ee;border-radius:8px;overflow:hidden;background:#fff;text-align:center;box-shadow:0 7px 20px rgba(24,50,79,.07);padding-bottom:18px}
 .domain img{width:100%;height:102px;object-fit:cover}
 .icon{width:54px;height:54px;border-radius:50%;background:#fff;color:var(--orange);margin:-27px auto 8px;position:relative;display:grid;place-items:center;border:1px solid #eef1f4;font-size:25px}
 .domain h3{font-family:var(--serif);font-size:18px;margin:0 0 9px;color:#132c4a}
@@ -189,6 +189,26 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
   nav{display:none!important}
 }
 
+
+.domain-more{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:auto;
+  padding-top:13px;
+  color:#0b3d73;
+  font-size:8.5px;
+  font-weight:800;
+  letter-spacing:.02em;
+  text-decoration:none;
+}
+.domain-more:hover,
+.domain-more:focus{
+  color:#ff830f;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
@@ -222,71 +242,39 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
 
 <section class="domains">
   <div class="wrap domain-grid">
+
     <article class="domain">
-      <img src="https://images.pexels.com/photos/6238013/pexels-photo-6238013.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Étudiants travaillant ensemble">
-      <div class="icon">⌂</div><h3>Éducation</h3>
+      <img src="https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Situation d’apprentissage et d’éducation" loading="lazy">
+      <div class="icon">⌂</div>
+      <h3>Éducation</h3>
       <p>Comprendre et accompagner les transformations pédagogiques, institutionnelles et numériques.</p>
+      <a class="domain-more" target="_self" href="./recherche.html#education">Découvrir l’axe →</a>
     </article>
+
     <article class="domain">
-      <img src="https://images.pexels.com/photos/29180875/pexels-photo-29180875.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Participants à un atelier collectif">
-      <div class="icon">◎</div><h3>Social</h3>
+      <img src="https://images.pexels.com/photos/7551442/pexels-photo-7551442.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Groupe de personnes échangeant dans un cadre collectif" loading="lazy">
+      <div class="icon">◎</div>
+      <h3>Social</h3>
       <p>Étudier les transformations des liens, des communautés, des solidarités et des formes de participation.</p>
+      <a class="domain-more" target="_self" href="./recherche.html#social">Découvrir l’axe →</a>
     </article>
+
     <article class="domain">
-      <img src="https://images.unsplash.com/photo-1765896387387-0538bc9f997e?auto=format&fit=crop&fm=jpg&q=80&w=1600" alt="Professionnels et usagers dans une situation de soin">
-      <div class="icon">♡</div><h3>Santé</h3>
+      <img src="https://images.pexels.com/photos/3845126/pexels-photo-3845126.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Professionnels de santé en situation de travail" loading="lazy">
+      <div class="icon">♡</div>
+      <h3>Santé</h3>
       <p>Interroger les transformations des pratiques, des organisations et des relations de soin.</p>
+      <a class="domain-more" target="_self" href="./recherche.html#sante">Découvrir l’axe →</a>
     </article>
+
     <article class="domain">
-      <img src="https://images.pexels.com/photos/32702849/pexels-photo-32702849.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Atelier culturel collectif">
-      <div class="icon">◇</div><h3>Culture</h3>
+      <img src="https://images.pexels.com/photos/20311930/pexels-photo-20311930.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Public multiethnique participant à un événement culturel dans un espace urbain" loading="lazy">
+      <div class="icon">◇</div>
+      <h3>Culture</h3>
       <p>Analyser les transformations des identités, des patrimoines, des usages et des rapports au monde.</p>
+      <a class="domain-more" target="_self" href="./recherche.html#culture">Découvrir l’axe →</a>
     </article>
-  </div>
-</section>
 
-<section class="projects">
-  <div class="wrap projects-row">
-    <div>
-      <div class="eyebrow">À la une</div>
-      <h2 class="title">Nos projets<br>et expérimentations</h2>
-      <p class="intro">Des recherches et expérimentations situées pour comprendre les transformations contemporaines et tester des réponses avec les acteurs.</p>
-      <a target="_self" class="btn" href="./projets.html">Découvrir nos projets →</a>
-    </div>
-
-    <div class="cards">
-      <article class="project-card">
-        <img src="https://images.pexels.com/photos/3860928/pexels-photo-3860928.jpeg?auto=compress&cs=tinysrgb&w=2400" alt="Groupe travaillant autour d'un ordinateur">
-        <div class="body">
-          <span class="tag">Recherche</span>
-          <h3>IA et formation<br>des futurs enseignants</h3>
-          <p>Étude comparative des usages et appropriations de l’IA dans plusieurs espaces francophones.</p>
-          <a target="_self" class="more" href="./projets.html">En savoir plus →</a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <img src="https://images.pexels.com/photos/20184571/pexels-photo-20184571.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Participants à un atelier collectif">
-        <div class="body">
-          <span class="tag">Expérimentation</span>
-          <h3>Living Lab IA citoyen</h3>
-          <div class="status">Sous réserve d’obtention de financements publics</div>
-          <p>Expérimentation territoriale autour de l’esprit critique, de la littératie IA et de la co-intelligence.</p>
-          <a target="_self" class="more" href="./projets.html">Découvrir le projet →</a>
-        </div>
-      </article>
-
-      <article class="project-card card-resilience">
-        <img src="https://images.pexels.com/photos/33634824/pexels-photo-33634824.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Participants à un atelier communautaire">
-        <div class="body">
-          <span class="tag">Innovation sociale</span>
-          <h3>Résilience communautaire</h3>
-          <div class="status">Projet en idéation</div>
-          <p>Explorer comment des infrastructures relationnelles peuvent soutenir les communautés face aux transformations durables.</p>
-          <a target="_self" class="more" href="./projets.html">Voir la piste de recherche →</a>
-        </div>
-      </article>
-    </div>
   </div>
 </section>
 
@@ -302,7 +290,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
         <li>Documenter une expérimentation</li>
         <li>Co-construire une recherche</li>
       </ul>
-      <a target="_self" class="btn" href="./contact.html">Proposer une collaboration →</a>
+      <a target="_self" class="btn" href="./nous-rejoindre.html">Proposer une collaboration →</a>
     </div>
 
     <div class="research-map-shell">
@@ -349,23 +337,6 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
         <p>Journées de la Recherche en Éducation — Recherches interdisciplinaires sur les interactions entre cultures, langues et apprentissages scolaires.</p>
         <a target="_self" class="more" href="./evenements.html">Voir l’évènement →</a>
       </div>
-    </article>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="wrap cta-grid">
-    <article class="cta-item">
-      <div class="circle c1">◎</div>
-      <div><h3>Nous rejoindre</h3><p>Rejoignez une communauté engagée dans la recherche et l’expérimentation au service des territoires.</p><a target="_self" href="./nous-rejoindre.html">En savoir plus →</a></div>
-    </article>
-    <article class="cta-item">
-      <div class="circle c2">↔</div>
-      <div><h3>Collaborer</h3><p>Construisons ensemble des recherches et expérimentations à partir de vos enjeux et de vos contextes.</p><a target="_self" href="./contact.html">En savoir plus →</a></div>
-    </article>
-    <article class="cta-item">
-      <div class="circle c3">♡</div>
-      <div><h3>Soutenir le CEHN2T</h3><p>Votre soutien contribue au développement des recherches, des expérimentations et des évènements scientifiques.</p><a href="mailto:contact@cehn2t.fr?subject=Soutenir%20le%20CEHN2T">Faire un don →</a></div>
     </article>
   </div>
 </section>
