@@ -856,6 +856,40 @@ nav a.active:after{bottom:20px}
   .smartart-badge{width:22px;height:22px;font-size:8.5px}
 }
 
+
+/* V19 — texte d'équipe scientifique ajouté au hero */
+.about-hero-lead{
+  max-width:1040px;
+  font-size:12.5px;
+  line-height:1.52;
+}
+@media(max-width:760px){
+  .about-hero-lead{
+    font-size:12px;
+    line-height:1.5;
+  }
+}
+
+
+.about-hero-lead{
+  max-width:1040px;
+  font-size:12.5px;
+  line-height:1.52;
+  color:#fff;
+}
+.about-hero-lead p{
+  margin:0 0 10px;
+}
+.about-hero-lead p:last-child{
+  margin-bottom:0;
+}
+@media(max-width:760px){
+  .about-hero-lead{
+    font-size:12px;
+    line-height:1.5;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -894,9 +928,15 @@ nav a.active:after{bottom:20px}
     <h1>Observatoire et laboratoire d’idées et d’expérimentations</h1>
     <div class="about-hero-rule"></div>
 
-    <p class="about-hero-lead">
-      Une association internationale à but non lucratif qui réunit chercheurs, enseignants, professionnels, étudiants et acteurs des territoires. Nous développons des activités de recherche, formation, expérimentation, accompagnement et transfert de connaissances, en France, dans l’espace francophone et à l’international. Notre démarche est humaniste, éthique, inclusive, participative et éco-responsable.
-    </p>
+    <div class="about-hero-lead">
+      <p>
+        Le CEHN2T (Centre d'Etudes Humanités Numériques, Territoires et Transformations) est une association à vocation internationale, à but non lucratif, qui réunit chercheurs, enseignants, professionnels, étudiants et acteurs des territoires. Elle développe des activités de recherche, de formation, d'expérimentation, d'accompagnement et de transfert de connaissances, en France, dans l'espace francophone et à l'international. Sa démarche est humaniste, éthique, inclusive, participative et éco-responsable.
+      </p>
+
+      <p>
+        Les membres actifs de l'association sont des experts métiers, chercheurs et enseignants-chercheurs rattachés à des établissements universitaires et/ou laboratoires de recherche, aux niveaux national et international. Ils exercent leurs fonctions en tant que spécialistes dans des domaines complémentaires tels que les technologies éducatives, l'ingénierie pédagogique, l'anthropologie, l'informatique, la psychologie, la linguistique ou les sciences de l'information et de la communication. L'association reste ouverte à toute discipline des sciences humaines et sociales ainsi qu'aux sciences dures, en cohérence avec les axes de recherche de l'association.
+      </p>
+    </div>
 
     <div class="about-hero-meta" aria-label="Repères sur le CEHN2T">
       <span>Recherche</span>
