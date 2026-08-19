@@ -505,6 +505,132 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
   font-size:10px;
 }
 
+
+/* V4 — historique compact */
+.past-section{
+  padding:34px 0 38px;
+}
+.compact-head{
+  margin-bottom:12px;
+}
+.compact-head h2{
+  font-size:31px;
+}
+.compact-head p{
+  max-width:560px;
+}
+.past-archive{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:#fff;
+}
+.past-archive > summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 14px;
+  cursor:pointer;
+}
+.past-archive > summary::-webkit-details-marker{
+  display:none;
+}
+.past-archive-label{
+  display:block;
+  margin-bottom:2px;
+  color:var(--orange);
+  font-size:7px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.past-archive > summary strong{
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:17px;
+  font-weight:700;
+}
+.past-archive[open] > summary{
+  border-bottom:1px solid #e8edf1;
+}
+.past-archive[open] .plus{
+  transform:rotate(45deg);
+  background:#f3f7fa;
+}
+#past-events{
+  padding:10px 14px 14px;
+}
+.past-year + .past-year{
+  margin-top:13px;
+}
+.past-year-title{
+  margin-bottom:6px;
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:18px;
+  font-weight:700;
+}
+.past-rows{
+  display:grid;
+  gap:6px;
+}
+.past-row{
+  display:grid;
+  grid-template-columns:112px minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+  padding:8px 10px;
+  border:1px solid #e7edf2;
+  border-radius:8px;
+  background:#fbfcfd;
+}
+.past-row time{
+  color:var(--orange);
+  font-size:7.5px;
+  font-weight:800;
+  line-height:1.35;
+  text-transform:uppercase;
+}
+.past-row h4{
+  margin:0 0 2px;
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:14px;
+  line-height:1.1;
+}
+.past-row p{
+  margin:0;
+  color:#6a7e90;
+  font-size:8.5px;
+  line-height:1.4;
+}
+
+/* désactiver les anciens styles de filtres devenus inutiles */
+.past-toolbar,
+.past-filters,
+.past-meta,
+.past-more{
+  display:none!important;
+}
+
+@media(max-width:620px){
+  .past-section{
+    padding:28px 0 32px;
+  }
+  .compact-head h2{
+    font-size:27px;
+  }
+  .past-row{
+    grid-template-columns:1fr;
+    gap:4px;
+  }
+  .past-archive > summary strong{
+    font-size:16px;
+  }
+}
+
 </style>
 </head>
 
@@ -566,20 +692,29 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
   </div>
 </section>
 
-<section class="soft">
+<section class="soft past-section">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head compact-head">
       <div>
         <div class="eyebrow">Participations passées</div>
-        <h2>Une présence scientifique depuis 2025</h2>
+        <h2>Nos participations récentes</h2>
       </div>
       <p>
-        Cette partie se met à jour automatiquement : lorsqu’un évènement est terminé,
-        il bascule ici sans intervention manuelle.
+        Colloques, conférences et rencontres auxquels le CEHN2T a participé.
       </p>
     </div>
 
-    <div id="past-events"></div>
+    <details class="past-archive">
+      <summary>
+        <div>
+          <span class="past-archive-label">Historique</span>
+          <strong>Voir les participations passées</strong>
+        </div>
+        <span class="plus" aria-hidden="true">+</span>
+      </summary>
+
+      <div id="past-events"></div>
+    </details>
   </div>
 </section>
 
@@ -675,10 +810,124 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
 </footer>
 
 
+<script>
+window.CEHN2T_EVENTS_FALLBACK = [
+  {
+    "id": "chatgpt-up-2026",
+    "title": "Atelier ChatGPT — Initiation à l’usage responsable de l’IA",
+    "start": "2026-09-04",
+    "end": "2026-09-04",
+    "place": "UP19 · Université Populaire de Mulhouse",
+    "location": "Mulhouse · France",
+    "type": "Atelier",
+    "description": "Un atelier pratique consacré à la découverte de ChatGPT, à l’expérimentation guidée, à la protection des données, à l’esprit critique et aux enjeux éthiques liés aux usages de l’intelligence artificielle.",
+    "tags": [
+      "ChatGPT",
+      "IA responsable",
+      "Esprit critique",
+      "Éthique"
+    ],
+    "visual": "photo",
+    "image": "https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg?auto=compress&cs=tinysrgb&w=900"
+  },
+  {
+    "id": "riiclas-2026",
+    "title": "JRE–RIICLAS 2026",
+    "start": "2026-10-05",
+    "end": "2026-10-09",
+    "place": "5–9 octobre 2026",
+    "location": "Les Abymes · Guadeloupe",
+    "type": "Colloque",
+    "description": "Participation du CEHN2T aux Journées de la Recherche en Éducation — RIICLAS 2026, autour des interactions entre cultures, langues, apprentissages et transformations éducatives.",
+    "tags": [
+      "Éducation",
+      "Cultures",
+      "Francophonie",
+      "Guadeloupe"
+    ],
+    "visual": "photo",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Guadeloupe_Les_Abymes_carrefour_de_Lacroix%2C_sur_le_boulevard_des_H%C3%A9ros_1.jpg/1280px-Guadeloupe_Les_Abymes_carrefour_de_Lacroix%2C_sur_le_boulevard_des_H%C3%A9ros_1.jpg"
+  },
+  {
+    "id": "aipdp-2027",
+    "title": "10e colloque scientifique international bilingue AIPDP 2027",
+    "start": "2027-05-26",
+    "end": "2027-05-28",
+    "place": "26–28 mai 2027 · Patro Villeray",
+    "location": "Montréal · Québec · Canada",
+    "type": "Colloque",
+    "description": "Le CEHN2T prévoit de participer au colloque « Les intelligences au service de l’humain », consacré aux innovations, aux transformations des usages et à plusieurs enjeux interdisciplinaires contemporains.",
+    "tags": [
+      "Colloque international",
+      "IA",
+      "Transformations",
+      "Montréal"
+    ],
+    "visual": "aipdp"
+  },
+  {
+    "id": "aipdp-2026",
+    "title": "Colloque AIPDP 2026",
+    "start": "2026-05-20",
+    "end": "2026-05-22",
+    "place": "Université d’Ottawa",
+    "location": "Ottawa · Canada",
+    "type": "Colloque",
+    "description": "Participation du CEHN2T au colloque AIPDP 2026.",
+    "tags": [
+      "Colloque",
+      "Canada"
+    ]
+  },
+  {
+    "id": "up-conference-2025",
+    "title": "Conférence — Université Populaire de Mulhouse",
+    "start": "2025-11-13",
+    "end": "2025-11-13",
+    "place": "Université Populaire de Mulhouse",
+    "location": "Mulhouse · France",
+    "type": "Conférence",
+    "description": "Participation du CEHN2T à une conférence à l’Université Populaire de Mulhouse.",
+    "tags": [
+      "Conférence",
+      "Mulhouse"
+    ]
+  },
+  {
+    "id": "rufifese-2025",
+    "title": "Colloque RUFIFESE",
+    "start": "2025-11-07",
+    "end": "2025-11-07",
+    "place": "Dakar",
+    "location": "Dakar · Sénégal",
+    "type": "Colloque",
+    "description": "Participation du CEHN2T au colloque RUFIFESE à Dakar.",
+    "tags": [
+      "Colloque",
+      "Sénégal"
+    ]
+  },
+  {
+    "id": "roc-2025",
+    "title": "Colloque ROC 2025 — TÉLUQ",
+    "start": "2025-10-22",
+    "end": "2025-10-24",
+    "place": "En ligne · Québec",
+    "location": "Québec · En ligne",
+    "type": "Colloque",
+    "description": "Participation du CEHN2T au colloque ROC 2025 organisé par la TÉLUQ.",
+    "tags": [
+      "Colloque",
+      "Québec",
+      "En ligne"
+    ]
+  }
+];
+</script>
 <script src="./events-data.js"></script>
 <script>
 (() => {
-  const EVENTS = Array.isArray(window.CEHN2T_EVENTS) ? window.CEHN2T_EVENTS : [];
+  const EVENTS = Array.isArray(window.CEHN2T_EVENTS) ? window.CEHN2T_EVENTS : (Array.isArray(window.CEHN2T_EVENTS_FALLBACK) ? window.CEHN2T_EVENTS_FALLBACK : []);
 
   const futureRoot = document.getElementById('future-events');
   const pastRoot = document.getElementById('past-events');
@@ -749,63 +998,35 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
     }).join('') : '<div class="empty-events">Aucun évènement à venir pour le moment.</div>';
   }
 
-  let activeYear = 'all';
-  let showAllPast = false;
-
   function renderPast(events) {
-    const years = [...new Set(events.map(e => toDate(e.end).getFullYear()))].sort((a,b) => b-a);
-    const visible = activeYear === 'all'
-      ? events
-      : events.filter(e => String(toDate(e.end).getFullYear()) === activeYear);
+    if (!events.length) {
+      pastRoot.innerHTML = '<div class="empty-events">Aucune participation passée pour le moment.</div>';
+      return;
+    }
 
-    const limited = showAllPast ? visible : visible.slice(0, 8);
-
-    const grouped = limited.reduce((acc, e) => {
+    const grouped = events.reduce((acc, e) => {
       const y = toDate(e.end).getFullYear();
       (acc[y] ||= []).push(e);
       return acc;
     }, {});
 
-    const filters = `
-      <div class="past-toolbar">
-        <div class="past-filters">
-          <button class="past-filter ${activeYear === 'all' ? 'active' : ''}" data-year="all" type="button">Tous</button>
-          ${years.map(y => `<button class="past-filter ${activeYear === String(y) ? 'active' : ''}" data-year="${y}" type="button">${y}</button>`).join('')}
+    pastRoot.innerHTML = Object.keys(grouped)
+      .sort((a,b) => b-a)
+      .map(year => `
+        <div class="past-year">
+          <div class="past-year-title">${year}</div>
+          <div class="past-rows">
+            ${grouped[year].map(e => `
+              <article class="past-row">
+                <time>${formatRange(e)}</time>
+                <div>
+                  <h4>${esc(e.title)}</h4>
+                  <p>${esc(e.location)}</p>
+                </div>
+              </article>`).join('')}
+          </div>
         </div>
-        <div class="past-meta">${visible.length} participation${visible.length > 1 ? 's' : ''}</div>
-      </div>`;
-
-    const body = Object.keys(grouped).sort((a,b) => b-a).map(year => `
-      <div class="past-year">
-        <h3>${year}</h3>
-        <div class="past-grid">
-          ${grouped[year].map(e => `
-            <article class="past-card">
-              <time>${formatRange(e)}</time>
-              <h4>${esc(e.title)}</h4>
-              <p>${esc(e.location)}</p>
-            </article>`).join('')}
-        </div>
-      </div>`).join('');
-
-    const more = visible.length > 8
-      ? `<button type="button" class="past-more">${showAllPast ? 'Réduire l’historique' : 'Voir tout l’historique'}</button>`
-      : '';
-
-    pastRoot.innerHTML = filters + (body || '<div class="empty-events">Aucune participation passée.</div>') + more;
-
-    pastRoot.querySelectorAll('.past-filter').forEach(btn => {
-      btn.addEventListener('click', () => {
-        activeYear = btn.dataset.year;
-        showAllPast = false;
-        renderPast(events);
-      });
-    });
-
-    pastRoot.querySelector('.past-more')?.addEventListener('click', () => {
-      showAllPast = !showAllPast;
-      renderPast(events);
-    });
+      `).join('');
   }
 
   function formatRange(event) {
