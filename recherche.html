@@ -1543,6 +1543,30 @@ details[open] > summary .research-toggle::before{content:"−"}
   }
 }
 
+
+/* PUBLICATIONS HAL */
+.hal-publications{
+  padding:18px 0 22px;
+  background:#fff;
+  border-top:1px solid var(--line);
+}
+.hal-publications p{
+  margin:0;
+  color:#53687b;
+  font-size:9.5px;
+  line-height:1.55;
+}
+.hal-publications a{
+  color:var(--blue);
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+.hal-publications a:hover,
+.hal-publications a:focus{
+  color:var(--orange);
+}
+
 </style>
 </head>
 
@@ -1811,13 +1835,13 @@ details[open] > summary .research-toggle::before{content:"−"}
 
       <article
         class="metric-cell"
-        data-target="2"
+        data-target="6"
       >
         <span class="metric-code">PUBLICATIONS</span>
 
         <div
           class="metric-odometer"
-          aria-label="2"
+          aria-label="6"
         >
           <div class="metric-odometer-track"></div>
         </div>
@@ -2433,6 +2457,15 @@ details[open] > summary .research-toggle::before{content:"−"}
   </div>
   </div>
 </details>
+
+<section class="hal-publications" aria-label="Publications du CEHN2T sur HAL">
+  <div class="wrap">
+    <p>
+      Nos publications sont également disponibles sur le portail d’archives ouvertes
+      <a href="https://hal.science/" target="_blank" rel="noopener noreferrer">HAL</a>.
+    </p>
+  </div>
+</section>
 
 <section class="research-cta">
   <div class="wrap">
