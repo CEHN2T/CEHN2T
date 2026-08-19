@@ -31,14 +31,14 @@ section{padding:56px 0}
 .lead{font-size:16px;line-height:1.76;color:#31465f;margin:0 0 16px}
 
 /* Header */
-header{height:82px;background:#fff;border-bottom:1px solid #edf0f3;position:sticky;top:0;z-index:30}
-.header-in{height:82px;display:flex;align-items:center;padding:0 16px}
-.logo{width:235px;height:auto;flex:0 0 auto}
+header{height:90px;background:#fff;border-bottom:1px solid #edf0f3;position:sticky;top:0;z-index:30}
+.header-in{height:90px;display:flex;align-items:center;padding:0 18px}
+.logo{width:245px;height:auto;flex:0 0 auto}
 .logo-fallback{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--blue)}
-nav{margin-left:auto;height:82px;display:flex;align-items:center;gap:22px}
-nav a{height:82px;display:flex;align-items:center;font-size:13px;font-weight:700;position:relative;white-space:nowrap;color:#0b0b0b}
-nav a.active:after{content:"";height:2px;background:var(--orange);position:absolute;left:0;right:0;bottom:20px}
-.search{margin-left:18px;font-size:24px;color:#111}
+nav{margin-left:auto;height:90px;display:flex;align-items:center;gap:29px}
+nav a{height:90px;display:flex;align-items:center;font-size:10px;font-weight:700;position:relative;white-space:nowrap;color:#0b0b0b}
+nav a.active:after{content:"";height:2px;background:var(--orange);position:absolute;left:0;right:0;bottom:31px}
+.search{margin-left:26px;font-size:22px;color:#111}
 
 /* Intro architecture: asymmetrical, different from home */
 .hero-intro{padding:40px 0 58px}
@@ -208,7 +208,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
 }
 @media(max-width:760px){
   .wrap{max-width:calc(100% - 28px)}
-  header,.header-in{height:70px}
+  header,.header-in{height:72px}
   .logo{width:215px}
   .hero-intro{padding:28px 0 44px}
   .intro-panel{padding:30px 24px 28px}
@@ -372,8 +372,206 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
 }
 
 
-/* Navigation desktop / demi-écran : conserver les titres visibles */
-@media (max-width:980px) and (min-width:761px){
+/* ============================================================
+   V12 — Mise en page compacte + accordéons accessibles
+   ============================================================ */
+
+.hero-intro{
+  padding:34px 0 44px;
+}
+.intro-grid{
+  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+  gap:26px;
+  align-items:stretch;
+}
+.intro-panel{
+  padding:34px 34px 30px;
+}
+.intro-panel h1{
+  max-width:720px;
+  font-size:43px;
+  line-height:1.02;
+}
+.intro-panel .intro-lead{
+  font-size:14px;
+  line-height:1.72;
+  margin-bottom:12px;
+}
+.intro-panel .intro-structure{
+  font-size:12.5px;
+  line-height:1.65;
+  color:#dfeaf5;
+  margin-bottom:18px;
+}
+.structure-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.structure-tags span{
+  display:inline-flex;
+  align-items:center;
+  min-height:29px;
+  padding:6px 9px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+  color:#fff;
+  font-size:8.5px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+.compact-mosaic{
+  min-height:430px;
+  grid-template-rows:minmax(0,1.2fr) minmax(0,.8fr);
+}
+
+.missions-section{
+  padding:50px 0 54px;
+}
+.missions-head{
+  max-width:760px;
+  margin-bottom:22px;
+}
+.section-intro{
+  max-width:650px;
+  margin:6px 0 0;
+  color:#667b8e;
+  font-size:11px;
+  line-height:1.65;
+}
+.accordion-grid{
+  gap:14px;
+}
+.mission-accordion{
+  padding:0;
+  overflow:hidden;
+}
+.mission-accordion.mission-wide{
+  grid-column:1 / -1;
+}
+.mission-accordion summary,
+.info-accordion summary{
+  list-style:none;
+  cursor:pointer;
+}
+.mission-accordion summary::-webkit-details-marker,
+.info-accordion summary::-webkit-details-marker{
+  display:none;
+}
+.mission-accordion summary{
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr) 34px;
+  gap:14px;
+  align-items:center;
+  padding:18px 18px;
+}
+.mission-summary-copy h3{
+  font-family:var(--serif);
+  font-size:20px;
+  line-height:1.08;
+  color:var(--blue);
+  margin:0 0 4px;
+}
+.mission-summary-copy p{
+  margin:0;
+  color:#63778a;
+  font-size:10.5px;
+  line-height:1.5;
+}
+.accordion-toggle{
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid #dfe7ee;
+  background:#fff;
+  color:var(--orange);
+  font-size:20px;
+  font-weight:400;
+  line-height:1;
+}
+.accordion-toggle::before{
+  content:"+";
+}
+details[open] > summary .accordion-toggle::before{
+  content:"−";
+}
+.mission-accordion[open],
+.info-accordion[open]{
+  border-color:#ccd9e6;
+  box-shadow:0 12px 30px rgba(16,43,73,.075);
+}
+.accordion-body{
+  border-top:1px solid #edf1f4;
+  padding:16px 18px 19px 78px;
+}
+.mission-accordion .accordion-body p{
+  margin:0;
+  color:#40566b;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.compact-info-zone{
+  padding:54px 0 58px;
+}
+.compact-accordions{
+  gap:15px;
+}
+.info-accordion{
+  padding:0;
+  overflow:hidden;
+}
+.info-accordion summary{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 36px;
+  gap:16px;
+  align-items:center;
+  padding:20px 22px;
+}
+.compact-heading{
+  margin:0;
+}
+.compact-heading > div:last-child{
+  min-width:0;
+}
+.compact-heading h2{
+  margin-bottom:4px;
+}
+.compact-heading p{
+  margin:0;
+  color:#64798d;
+  font-size:11px;
+  line-height:1.55;
+}
+.info-accordion-body{
+  padding:22px 28px 26px;
+}
+.info-accordion-body p{
+  font-size:12.5px;
+  line-height:1.75;
+  margin:0 0 13px;
+  color:#3b4f64;
+}
+
+.values-card{
+  padding:24px 24px;
+}
+.values-photo img{
+  height:285px;
+}
+
+/* Header aligned with validated responsive behavior */
+header,.header-in{height:82px}
+.logo{width:235px}
+nav{height:82px;gap:22px}
+nav a{height:82px;font-size:13px}
+nav a.active:after{bottom:20px}
+.search{margin-left:18px;font-size:24px}
+
+@media(max-width:980px) and (min-width:761px){
   header,.header-in{height:78px!important}
   .logo{width:205px!important}
   nav{
@@ -396,10 +594,204 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
   nav a.active:after{bottom:16px!important}
   .search{margin-left:10px!important;font-size:20px!important}
 }
-
-/* Seulement sur petit écran mobile : masquer le menu classique */
-@media (max-width:760px){
+@media(max-width:900px){
+  .intro-grid{
+    grid-template-columns:1fr;
+  }
+  .compact-mosaic{
+    min-height:390px;
+  }
+  .mission-accordion.mission-wide{
+    grid-column:auto;
+  }
+}
+@media(max-width:760px){
   nav{display:none!important}
+  .intro-panel h1{
+    font-size:34px;
+  }
+  .compact-mosaic{
+    min-height:0;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:220px 155px;
+  }
+  .compact-mosaic .photo-large{
+    grid-column:1 / -1;
+  }
+  .mission-accordion summary{
+    grid-template-columns:42px minmax(0,1fr) 32px;
+    gap:11px;
+    padding:16px 14px;
+  }
+  .mission-icon{
+    width:42px;
+    height:42px;
+    flex-basis:42px;
+  }
+  .accordion-body{
+    padding:15px 15px 18px;
+  }
+  .info-accordion summary{
+    grid-template-columns:minmax(0,1fr) 32px;
+    padding:17px 15px;
+  }
+  .compact-heading{
+    align-items:flex-start;
+  }
+  .compact-heading .simple-heading-icon{
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+  }
+  .compact-heading h2{
+    font-size:21px;
+  }
+  .info-accordion-body{
+    padding:18px 16px 22px;
+  }
+}
+@media(max-width:520px){
+  .compact-mosaic{
+    grid-template-columns:1fr;
+    grid-template-rows:210px 145px 145px;
+  }
+  .compact-mosaic .photo-large{
+    grid-column:auto;
+  }
+  .structure-tags{
+    gap:6px;
+  }
+  .mission-summary-copy h3{
+    font-size:18px;
+  }
+}
+
+
+/* ============================================================
+   V13 — HERO "LE CEHN2T" aligné sur la page d'accueil
+   ============================================================ */
+.about-hero{
+  position:relative;
+  min-height:410px;
+  overflow:hidden;
+  background:#07182a;
+  color:#fff;
+}
+.about-hero-media,
+.about-hero-overlay{
+  position:absolute;
+  inset:0;
+}
+.about-hero-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 42%;
+  display:block;
+}
+.about-hero-overlay{
+  background:
+    linear-gradient(90deg,rgba(3,17,31,.92) 0%,rgba(3,17,31,.78) 34%,rgba(3,17,31,.34) 66%,rgba(3,17,31,.15) 100%),
+    linear-gradient(180deg,rgba(3,17,31,.08),rgba(3,17,31,.28));
+}
+.about-hero-content{
+  position:relative;
+  z-index:2;
+  min-height:410px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:34px;
+  padding-bottom:34px;
+}
+.about-hero-kicker{
+  margin:0 0 10px;
+  color:#ff9a2f;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.about-hero h1{
+  max-width:680px;
+  margin:0;
+  color:#fff;
+  font-family:var(--serif);
+  font-size:clamp(43px,5.2vw,66px);
+  line-height:.98;
+  letter-spacing:-.04em;
+  text-wrap:balance;
+}
+.about-hero-rule{
+  width:58px;
+  height:4px;
+  margin:18px 0 14px;
+  background:var(--orange);
+}
+.about-hero-lead{
+  max-width:980px;
+  margin:0;
+  color:rgba(255,255,255,.92);
+  font-size:13px;
+  line-height:1.55;
+  font-weight:400;
+}
+.about-hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:16px;
+}
+.about-hero-meta span{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:5px 9px;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:8.5px;
+  font-weight:800;
+  letter-spacing:.02em;
+  backdrop-filter:blur(4px);
+}
+
+@media(max-width:760px){
+  .about-hero,
+  .about-hero-content{
+    min-height:370px;
+  }
+  .about-hero-overlay{
+    background:
+      linear-gradient(90deg,rgba(3,17,31,.9),rgba(3,17,31,.58)),
+      linear-gradient(180deg,rgba(3,17,31,.15),rgba(3,17,31,.4));
+  }
+  .about-hero h1{
+    max-width:92%;
+    font-size:40px;
+  }
+  .about-hero-lead{
+    max-width:92%;
+    font-size:12.5px;
+  }
+}
+@media(max-width:520px){
+  .about-hero,
+  .about-hero-content{
+    min-height:340px;
+  }
+  .about-hero-content{
+    padding-top:28px;
+    padding-bottom:28px;
+  }
+  .about-hero h1{
+    font-size:34px;
+  }
+  .about-hero-meta{
+    gap:6px;
+  }
 }
 
 </style>
@@ -426,89 +818,114 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
 
 <main>
 
-<section class="hero-intro">
-  <div class="wrap intro-grid">
-    <div class="intro-panel">
-      <div class="eyebrow">Le CEHN2T</div>
-      <h1>Le CEHN2T</h1>
-      <div class="rule"></div>
-      <p>Le Centre d'Études en Humanités Numériques, Territoires et Transformations est une association internationale à but non lucratif qui réunit enseignants-chercheurs, chercheurs, enseignants, formateurs, professionnels, étudiants et acteurs communautaires issus notamment des champs de l’éducation, du social, de la santé, de la culture et des territoires.</p>
-      <p>Nous produisons des recherches collaboratives et participatives, co-construites avec les acteurs des territoires, en France et dans l'espace francophone. Notre objet : comprendre les transformations induites par le numérique et agir sur leurs effets éducatifs, sociaux, culturels et humains.</p>
-      <p>Notre approche est humaniste, éthique, inclusive et éco-responsable. Elle place les personnes, les collectifs et les contextes locaux au centre de chaque projet.</p>
-      <p>Nos membres actifs sont des experts métiers, chercheurs et enseignants-chercheurs rattachés à des composantes et laboratoires universitaires en France et à l'international. Ils couvrent des domaines complémentaires : technologies éducatives, ingénierie pédagogique, anthropologie, psychologie, informatique, linguistique et sciences de l'information et de la communication, etc.</p>
-    </div>
+<section class="about-hero">
+  <div class="about-hero-media" aria-hidden="true">
+    <img
+      src="https://images.pexels.com/photos/7495607/pexels-photo-7495607.jpeg?auto=compress&cs=tinysrgb&w=2000"
+      alt=""
+      loading="eager">
+  </div>
+  <div class="about-hero-overlay"></div>
 
-    <div class="mosaic">
-      <div class="photo-card photo-large">
-        <img src="https://images.pexels.com/photos/7495607/pexels-photo-7495607.jpeg?auto=compress&dpr=1&h=750&w=1260" alt="Groupe diversifié de professionnels en atelier collaboratif autour d’un tableau blanc">
-      </div>
-      <div class="photo-card">
-        <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Atelier collaboratif">
-      </div>
-      <div class="photo-card">
-        <img src="https://images.pexels.com/photos/3811082/pexels-photo-3811082.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Échange entre professionnels">
-      </div>
+  <div class="wrap about-hero-content">
+    <p class="about-hero-kicker">Le CEHN2T</p>
+    <h1>Observatoire et laboratoire d’idées et d’expérimentations</h1>
+    <div class="about-hero-rule"></div>
+
+    <p class="about-hero-lead">
+      Une association internationale à but non lucratif qui réunit chercheurs, enseignants, professionnels, étudiants et acteurs des territoires. Nous développons des activités de recherche, formation, expérimentation, accompagnement et transfert de connaissances, en France, dans l’espace francophone et à l’international. Notre démarche est humaniste, éthique, inclusive, participative et éco-responsable.
+    </p>
+
+    <div class="about-hero-meta" aria-label="Repères sur le CEHN2T">
+      <span>Recherche</span>
+      <span>Expérimentation</span>
+      <span>Formation</span>
+      <span>Accompagnement</span>
+      <span>Transfert</span>
     </div>
   </div>
 </section>
 
-<section class="band">
+<section class="band missions-section">
   <div class="wrap">
     <div class="missions-head">
       <div class="eyebrow">Missions</div>
       <h2 class="title">Cinq missions complémentaires</h2>
+      <p class="section-intro">L’essentiel est visible immédiatement. Ouvrez une mission avec le bouton <strong>+</strong> pour en savoir plus.</p>
     </div>
 
-    <div class="missions-grid">
-      <article class="mission">
-        <div class="mission-top">
+    <div class="missions-grid accordion-grid">
+
+      <details class="mission mission-accordion">
+        <summary>
           <div class="mission-icon">↗</div>
-          <div>
-            <h3>Former et accompagner.</h3>
-            <p>Nous proposons des offres de formation et d'accompagnement destinées aux citoyens, aux professionnels, aux territoires, aux collectivités et aux organisations, en lien avec les technologies émergentes (IA, réalité virtuelle/augmentée, robotique, interfaces neuronales) et les Objectifs de Développement Durable.</p>
+          <div class="mission-summary-copy">
+            <h3>Former et accompagner</h3>
+            <p>Formation sur mesure, accompagnement et développement des compétences.</p>
           </div>
+          <span class="accordion-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="accordion-body">
+          <p>Nous proposons des offres de formation et d'accompagnement destinées aux citoyens, aux professionnels, aux territoires, aux collectivités et aux organisations, en lien avec les technologies émergentes (IA, réalité virtuelle/augmentée, robotique, interfaces neuronales) et les Objectifs de Développement Durable.</p>
         </div>
-      </article>
+      </details>
 
-      <article class="mission">
-        <div class="mission-top">
+      <details class="mission mission-accordion">
+        <summary>
           <div class="mission-icon">◎</div>
-          <div>
-            <h3>Expérimenter.</h3>
-            <p>Nous ouvrons des espaces de réflexion et d'innovation (living labs, ateliers, communautés de pratiques) pour un développement durable des territoires et des organisations apprenantes.</p>
+          <div class="mission-summary-copy">
+            <h3>Expérimenter</h3>
+            <p>Living labs, ateliers et espaces d’innovation avec les acteurs.</p>
           </div>
+          <span class="accordion-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="accordion-body">
+          <p>Nous ouvrons des espaces de réflexion et d'innovation (living labs, ateliers, communautés de pratiques) pour un développement durable des territoires et des organisations apprenantes.</p>
         </div>
-      </article>
+      </details>
 
-      <article class="mission">
-        <div class="mission-top">
+      <details class="mission mission-accordion">
+        <summary>
           <div class="mission-icon">⌁</div>
-          <div>
-            <h3>Renforcer les capacités numériques.</h3>
-            <p>Mentorat, partage de pratiques et accompagnement du changement pour développer la maturité numérique des individus et des organisations.</p>
+          <div class="mission-summary-copy">
+            <h3>Renforcer les capacités numériques</h3>
+            <p>Mentorat, partage de pratiques et accompagnement du changement.</p>
           </div>
+          <span class="accordion-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="accordion-body">
+          <p>Mentorat, partage de pratiques et accompagnement du changement pour développer la maturité numérique des individus et des organisations.</p>
         </div>
-      </article>
+      </details>
 
-      <article class="mission">
-        <div class="mission-top">
+      <details class="mission mission-accordion">
+        <summary>
           <div class="mission-icon">◉</div>
-          <div>
-            <h3>Observer et alerter.</h3>
-            <p>Le CEHN2T est un observatoire et laboratoire d'idées sur les transformations technologiques, éducatives, sociales, culturelles et organisationnelles. Il informe, conseille et anticipe les changements en mobilisant les méthodes des sciences humaines et sociales.</p>
+          <div class="mission-summary-copy">
+            <h3>Observer et alerter</h3>
+            <p>Veille, analyse et anticipation des transformations contemporaines.</p>
           </div>
+          <span class="accordion-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="accordion-body">
+          <p>Le CEHN2T est un observatoire et laboratoire d'idées sur les transformations technologiques, éducatives, sociales, culturelles et organisationnelles. Il informe, conseille et anticipe les changements en mobilisant les méthodes des sciences humaines et sociales.</p>
         </div>
-      </article>
+      </details>
 
-      <article class="mission">
-        <div class="mission-top">
+      <details class="mission mission-accordion mission-wide">
+        <summary>
           <div class="mission-icon">◇</div>
-          <div>
-            <h3>Incuber.</h3>
-            <p>Nous accompagnons l'émergence de projets internationaux contribuant à une transformation durable : montage de partenariats, financement, pilotage et diffusion.</p>
+          <div class="mission-summary-copy">
+            <h3>Incuber</h3>
+            <p>Faire émerger et structurer des projets internationaux à impact durable.</p>
           </div>
+          <span class="accordion-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="accordion-body">
+          <p>Nous accompagnons l'émergence de projets internationaux contribuant à une transformation durable : montage de partenariats, financement, pilotage et diffusion.</p>
         </div>
-      </article>
+      </details>
+
     </div>
   </div>
 </section>
@@ -529,107 +946,103 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
 
 
 
-<section class="soft">
-  <div class="wrap info-stack">
+<section class="soft compact-info-zone">
+  <div class="wrap info-stack compact-accordions">
 
-    <!-- 1. Recherche, transfert et diffusion -->
-    <article class="info-card simple-info-card research-card">
-      <div class="simple-heading">
-        <div class="simple-heading-icon research-heading-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48">
-            <path d="M11 8h21a4 4 0 0 1 4 4v24H15a4 4 0 0 0-4 4V8Z"/>
-            <path d="M15 36h23V14h-2M17 17h12M17 23h12M17 29h8"/>
-          </svg>
+    <details class="info-card info-accordion">
+      <summary>
+        <div class="simple-heading compact-heading">
+          <div class="simple-heading-icon research-heading-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+              <path d="M11 8h21a4 4 0 0 1 4 4v24H15a4 4 0 0 0-4 4V8Z"/>
+              <path d="M15 36h23V14h-2M17 17h12M17 23h12M17 29h8"/>
+            </svg>
+          </div>
+          <div>
+            <h2>Recherche, transfert et diffusion</h2>
+            <p>Produire des connaissances avec les acteurs et les rendre accessibles, utiles et transférables.</p>
+          </div>
         </div>
-        <h2>Recherche, transfert et diffusion</h2>
-      </div>
+        <span class="accordion-toggle" aria-hidden="true"></span>
+      </summary>
 
-      <p>Le CEHN2T développe des <strong>recherches collaboratives, participatives et citoyennes</strong>, menées en lien avec des chercheurs en France, dans l’espace francophone et à l’international, mais également avec les <strong>acteurs des territoires, les professionnels, les associations, les organisations et les citoyens concernés</strong>.</p>
+      <div class="accordion-body info-accordion-body">
+        <p>Le CEHN2T développe des <strong>recherches collaboratives, participatives et citoyennes</strong>, menées en lien avec des chercheurs en France, dans l’espace francophone et à l’international, mais également avec les <strong>acteurs des territoires, les professionnels, les associations, les organisations et les citoyens concernés</strong>.</p>
 
-      <p>Nous considérons les publics et les acteurs de terrain non comme de simples objets d’étude, mais comme des <strong>partenaires de la recherche</strong>, pouvant contribuer à l’identification des problématiques, à la production et à l’interprétation des données, à l’expérimentation ainsi qu’à la formulation de pistes d’action.</p>
+        <p>Nous considérons les publics et les acteurs de terrain non comme de simples objets d’étude, mais comme des <strong>partenaires de la recherche</strong>, pouvant contribuer à l’identification des problématiques, à la production et à l’interprétation des données, à l’expérimentation ainsi qu’à la formulation de pistes d’action.</p>
 
-      <p>Cette démarche vise à produire des connaissances à la fois <strong>scientifiquement rigoureuses, contextualisées, utiles et transférables</strong>, au plus près des réalités sociales, éducatives, culturelles et territoriales.</p>
+        <p>Cette démarche vise à produire des connaissances à la fois <strong>scientifiquement rigoureuses, contextualisées, utiles et transférables</strong>, au plus près des réalités sociales, éducatives, culturelles et territoriales.</p>
 
-      <p>Nous accordons également une place centrale au <strong>transfert des connaissances, à la vulgarisation scientifique et à l’accès ouvert</strong>, à travers des publications, communications, webinaires, ressources multilingues, formations, ateliers pratiques et autres formats accessibles aux professionnels comme aux citoyens.</p>
+        <p>Nous accordons également une place centrale au <strong>transfert des connaissances, à la vulgarisation scientifique et à l’accès ouvert</strong>, à travers des publications, communications, webinaires, ressources multilingues, formations, ateliers pratiques et autres formats accessibles aux professionnels comme aux citoyens.</p>
 
-
-      <div class="simple-research-icons" aria-label="Formats de diffusion et de transfert">
-        <span class="mini-icon blue" title="Publications">
-          <svg viewBox="0 0 40 40"><path d="M10 7h16l5 5v21H10V7Z M26 7v6h6 M15 18h11 M15 23h11 M15 28h8"/></svg>
-        </span>
-        <span class="mini-icon orange" title="Communications">
-          <svg viewBox="0 0 40 40"><path d="M8 10h24v17H19l-7 6v-6H8V10Z M14 16h12 M14 21h8"/></svg>
-        </span>
-        <span class="mini-icon blue" title="Webinaires">
-          <svg viewBox="0 0 40 40"><rect x="7" y="8" width="26" height="19" rx="2"/><path d="M14 32h12 M20 27v5 M16 14l8 4-8 4v-8Z"/></svg>
-        </span>
-        <span class="mini-icon orange" title="Ressources multilingues">
-          <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M7 20h26 M20 7c4 4 6 8 6 13s-2 9-6 13c-4-4-6-8-6-13s2-9 6-13Z"/></svg>
-        </span>
-        <span class="mini-icon blue" title="Formations">
-          <svg viewBox="0 0 40 40"><path d="M5 15l15-7 15 7-15 7-15-7Z M10 18v8c6 5 14 5 20 0v-8 M35 15v10"/></svg>
-        </span>
-        <span class="mini-icon orange" title="Ateliers pratiques">
-          <svg viewBox="0 0 40 40"><path d="M11 29l8-8 M23 17l6-6 M26 8l6 6 M8 26l6 6 M15 12l13 13"/></svg>
-        </span>
-      </div>
-    </article>
-
-    <!-- 2. Méthodes d'intervention -->
-    <article class="info-card simple-info-card methods-simple-card">
-      <div class="simple-heading">
-        <div class="simple-heading-icon methods-heading-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48">
-            <circle cx="24" cy="24" r="14"/>
-            <path d="M24 11v6M24 31v6M11 24h6M31 24h6M15 15l4 4M29 29l4 4M33 15l-4 4M19 29l-4 4"/>
-          </svg>
+        <div class="simple-research-icons" aria-label="Formats de diffusion et de transfert">
+          <span class="mini-icon blue" title="Publications">
+            <svg viewBox="0 0 40 40"><path d="M10 7h16l5 5v21H10V7Z M26 7v6h6 M15 18h11 M15 23h11 M15 28h8"/></svg>
+          </span>
+          <span class="mini-icon orange" title="Communications">
+            <svg viewBox="0 0 40 40"><path d="M8 10h24v17H19l-7 6v-6H8V10Z M14 16h12 M14 21h8"/></svg>
+          </span>
+          <span class="mini-icon blue" title="Webinaires">
+            <svg viewBox="0 0 40 40"><rect x="7" y="8" width="26" height="19" rx="2"/><path d="M14 32h12 M20 27v5 M16 14l8 4-8 4v-8Z"/></svg>
+          </span>
+          <span class="mini-icon orange" title="Ressources multilingues">
+            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M7 20h26 M20 7c4 4 6 8 6 13s-2 9-6 13c-4-4-6-8-6-13s2-9 6-13Z"/></svg>
+          </span>
+          <span class="mini-icon blue" title="Formations">
+            <svg viewBox="0 0 40 40"><path d="M5 15l15-7 15 7-15 7-15-7Z M10 18v8c6 5 14 5 20 0v-8 M35 15v10"/></svg>
+          </span>
+          <span class="mini-icon orange" title="Ateliers pratiques">
+            <svg viewBox="0 0 40 40"><path d="M11 29l8-8 M23 17l6-6 M26 8l6 6 M8 26l6 6 M15 12l13 13"/></svg>
+          </span>
         </div>
-        <h2>Méthodes d’intervention</h2>
       </div>
+    </details>
 
-      <p>Le CEHN2T intervient auprès d’<strong>organismes publics et privés</strong> : collectivités, établissements d’enseignement et de formation, associations, entreprises, institutions, structures sociales, sanitaires et culturelles.</p>
+    <details class="info-card info-accordion">
+      <summary>
+        <div class="simple-heading compact-heading">
+          <div class="simple-heading-icon methods-heading-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="14"/>
+              <path d="M24 11v6M24 31v6M11 24h6M31 24h6M15 15l4 4M29 29l4 4M33 15l-4 4M19 29l-4 4"/>
+            </svg>
+          </div>
+          <div>
+            <h2>Méthodes d’intervention</h2>
+            <p>Former, accompagner, expérimenter et évaluer avec les organisations publiques et privées.</p>
+          </div>
+        </div>
+        <span class="accordion-toggle" aria-hidden="true"></span>
+      </summary>
 
-      <p>Selon les besoins et le contexte de chaque organisation, nous proposons des <strong>formations sur mesure</strong>, des ateliers, des actions de sensibilisation, du conseil, de l’ingénierie pédagogique et organisationnelle ainsi que des dispositifs d’<strong>accompagnement des équipes et des projets de transformation</strong>.</p>
+      <div class="accordion-body info-accordion-body">
+        <p>Le CEHN2T intervient auprès d’<strong>organismes publics et privés</strong> : collectivités, établissements d’enseignement et de formation, associations, entreprises, institutions, structures sociales, sanitaires et culturelles.</p>
 
-      <p>Nos interventions sont conçues avec les acteurs concernés et adaptées à leurs objectifs, leurs publics, leurs ressources et leur niveau de maturité. Elles privilégient des approches <strong>participatives, collaboratives et réflexives</strong>, favorisant l’appropriation des changements, le développement des compétences, la coopération et l’apprentissage collectif.</p>
+        <p>Selon les besoins et le contexte de chaque organisation, nous proposons des <strong>formations sur mesure</strong>, des ateliers, des actions de sensibilisation, du conseil, de l’ingénierie pédagogique et organisationnelle ainsi que des dispositifs d’<strong>accompagnement des équipes et des projets de transformation</strong>.</p>
 
-      <p>Lorsque la situation le nécessite, l’accompagnement peut s’appuyer sur une démarche structurée :</p>
+        <p>Nos interventions sont conçues avec les acteurs concernés et adaptées à leurs objectifs, leurs publics, leurs ressources et leur niveau de maturité. Elles privilégient des approches <strong>participatives, collaboratives et réflexives</strong>, favorisant l’appropriation des changements, le développement des compétences, la coopération et l’apprentissage collectif.</p>
 
-      
-      <div class="process-schema" aria-label="Démarche structurée d'accompagnement">
-        <div class="schema-step">Analyse des besoins</div>
-        <div class="schema-arrow">→</div>
-        <div class="schema-step">Diagnostic</div>
-        <div class="schema-arrow">→</div>
-        <div class="schema-step">Co-construction d’une feuille de route</div>
-        <div class="schema-arrow">→</div>
-        <div class="schema-step">Formation et accompagnement</div>
-        <div class="schema-arrow">→</div>
-        <div class="schema-step">Expérimentation et mise en œuvre</div>
-        <div class="schema-arrow">→</div>
-        <div class="schema-step">Évaluation</div>
-        <div class="schema-arrow">→</div>
-        <div class="schema-step">Ajustements et capitalisation</div>
+        <p>Lorsque la situation le nécessite, l’accompagnement peut s’appuyer sur une démarche structurée :</p>
+
+        <div class="process-schema" aria-label="Démarche structurée d'accompagnement">
+          <div class="schema-step">Analyse des besoins</div>
+          <div class="schema-arrow">→</div>
+          <div class="schema-step">Diagnostic</div>
+          <div class="schema-arrow">→</div>
+          <div class="schema-step">Co-construction d’une feuille de route</div>
+          <div class="schema-arrow">→</div>
+          <div class="schema-step">Formation et accompagnement</div>
+          <div class="schema-arrow">→</div>
+          <div class="schema-step">Expérimentation et mise en œuvre</div>
+          <div class="schema-arrow">→</div>
+          <div class="schema-step">Évaluation</div>
+          <div class="schema-arrow">→</div>
+          <div class="schema-step">Ajustements et capitalisation</div>
+        </div>
+
+        <p>Le CEHN2T conçoit également des <strong>dispositifs d’évaluation formative, continue et d’impact</strong> permettant d’apprécier les effets sociaux, éducatifs, organisationnels, culturels, territoriaux ou environnementaux des actions engagées. L’évaluation constitue ainsi un outil d’<strong>aide à la décision, d’amélioration continue et d’apprentissage organisationnel</strong>.</p>
       </div>
-
-
-      <p>Le CEHN2T conçoit également des <strong>dispositifs d’évaluation formative, continue et d’impact</strong> permettant d’apprécier les effets sociaux, éducatifs, organisationnels, culturels, territoriaux ou environnementaux des actions engagées. L’évaluation constitue ainsi un outil d’<strong>aide à la décision, d’amélioration continue et d’apprentissage organisationnel</strong>.</p>
-
-      <div class="simple-method-icons" aria-label="Repères d'intervention">
-        <span class="mini-icon blue" title="Organismes publics et privés">
-          <svg viewBox="0 0 40 40"><path d="M8 32h24M11 32V15l9-6 9 6v17M16 20h8M16 25h8M20 9v23"/></svg>
-        </span>
-        <span class="mini-icon orange" title="Formation et accompagnement">
-          <svg viewBox="0 0 40 40"><path d="M5 15l15-7 15 7-15 7-15-7Z M10 18v8c6 5 14 5 20 0v-8 M35 15v10"/></svg>
-        </span>
-        <span class="mini-icon blue" title="Approches participatives">
-          <svg viewBox="0 0 40 40"><circle cx="13" cy="14" r="4"/><circle cx="27" cy="14" r="4"/><circle cx="20" cy="24" r="4"/><path d="M10 30c1-4 4-6 8-6h4c4 0 7 2 8 6"/></svg>
-        </span>
-        <span class="mini-icon orange" title="Évaluation et impact">
-          <svg viewBox="0 0 40 40"><path d="M9 31V9 M15 31V20 M21 31V14 M27 31V24 M8 31h24"/></svg>
-        </span>
-      </div>
-    </article>
+    </details>
 
   </div>
 </section>
