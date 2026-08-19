@@ -207,6 +207,8 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
   .footer-main{grid-template-columns:1fr 1fr}
 }
 @media(max-width:760px){
+  .smartart-flow{grid-template-columns:repeat(2,minmax(0,1fr));}
+
   .wrap{max-width:calc(100% - 28px)}
   header,.header-in{height:72px}
   .logo{width:215px}
@@ -295,29 +297,75 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
 .mini-icon.blue{color:#2467c9}
 .mini-icon.orange{color:var(--orange)}
 
-.process-schema{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:10px;
-  margin:10px 0 20px;
+.process-smartart{
+  margin:12px 0 20px;
+  padding:14px 14px 16px;
+  border-radius:20px;
+  background:linear-gradient(180deg,#fbfdff 0%,#f1f6fb 100%);
+  border:1px solid #dbe6f0;
+  box-shadow:0 10px 24px rgba(16,43,73,.05);
 }
-.schema-step{
-  padding:12px 14px;
-  border-radius:12px;
-  background:linear-gradient(180deg,#f7faff 0%,#eef4fb 100%);
-  border:1px solid #dfe7ef;
+.smartart-title{
+  margin:0 0 11px;
   color:var(--blue);
-  font-size:12px;
-  font-weight:700;
-  line-height:1.45;
-  box-shadow:0 5px 14px rgba(16,43,73,.04);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
 }
-.schema-arrow{
-  color:var(--orange);
-  font-size:18px;
-  font-weight:700;
+.smartart-flow{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:7px;
+  align-items:stretch;
+}
+.smartart-node{
+  position:relative;
+  min-height:72px;
+  padding:9px 16px 9px 12px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+  color:var(--blue);
+  background:linear-gradient(135deg,#ffffff 0%,#eef4fb 100%);
+  border:1px solid #d9e4ee;
+  border-radius:12px 0 0 12px;
+  clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 8px 50%);
+  box-shadow:0 6px 14px rgba(16,43,73,.05);
+}
+.smartart-node:first-child{
+  clip-path:polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%);
+  border-radius:14px 0 0 14px;
+}
+.smartart-node:last-child{
+  clip-path:polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 10px 50%);
+  border-radius:14px;
+}
+.smartart-node:nth-child(odd){
+  background:linear-gradient(135deg,#ffffff 0%,#eef4fb 100%);
+}
+.smartart-node:nth-child(even){
+  background:linear-gradient(135deg,#fff9f2 0%,#fff1df 100%);
+}
+.smartart-badge{
+  width:23px;
+  height:23px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--orange);
+  color:#fff;
+  font-size:9px;
+  font-weight:800;
   line-height:1;
+  box-shadow:0 4px 10px rgba(240,124,22,.22);
+}
+.smartart-node span:last-child{
+  display:block;
+  font-size:9.5px;
+  font-weight:750;
+  line-height:1.28;
 }
 .simple-method-icons{
   display:flex;
@@ -333,6 +381,14 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
   .simple-heading h2{font-size:24px}
   .simple-research-icons{flex-wrap:wrap}
   .mini-icon{width:43px;height:43px}
+  .smartart-flow{grid-template-columns:1fr;}
+  .smartart-node,
+  .smartart-node:first-child,
+  .smartart-node:last-child{
+    clip-path:none;
+    border-radius:14px;
+    min-height:auto;
+  }
 }
 
 
@@ -794,6 +850,12 @@ nav a.active:after{bottom:20px}
   }
 }
 
+
+@media(max-width:760px){
+  .smartart-node span:last-child{font-size:9px}
+  .smartart-badge{width:22px;height:22px;font-size:8.5px}
+}
+
 </style>
 </head>
 <body>
@@ -1024,23 +1086,38 @@ nav a.active:after{bottom:20px}
 
         <p>Lorsque la situation le nécessite, l’accompagnement peut s’appuyer sur une démarche structurée :</p>
 
-        <div class="process-schema" aria-label="Démarche structurée d'accompagnement">
-          <div class="schema-step">Analyse des besoins</div>
-          <div class="schema-arrow">→</div>
-          <div class="schema-step">Diagnostic</div>
-          <div class="schema-arrow">→</div>
-          <div class="schema-step">Co-construction d’une feuille de route</div>
-          <div class="schema-arrow">→</div>
-          <div class="schema-step">Formation et accompagnement</div>
-          <div class="schema-arrow">→</div>
-          <div class="schema-step">Expérimentation et mise en œuvre</div>
-          <div class="schema-arrow">→</div>
-          <div class="schema-step">Évaluation</div>
-          <div class="schema-arrow">→</div>
-          <div class="schema-step">Ajustements et capitalisation</div>
+        <div class="process-smartart" aria-label="Démarche structurée d'accompagnement">
+          <div class="smartart-title">Démarche structurée d’accompagnement</div>
+          <div class="smartart-flow">
+            <div class="smartart-node"><span class="smartart-badge">1</span><span>Analyse des besoins</span></div>
+            <div class="smartart-node"><span class="smartart-badge">2</span><span>Diagnostic</span></div>
+            <div class="smartart-node"><span class="smartart-badge">3</span><span>Co-construction d’une feuille de route</span></div>
+            <div class="smartart-node"><span class="smartart-badge">4</span><span>Formation et accompagnement</span></div>
+            <div class="smartart-node"><span class="smartart-badge">5</span><span>Expérimentation et mise en œuvre</span></div>
+            <div class="smartart-node"><span class="smartart-badge">6</span><span>Évaluation</span></div>
+            <div class="smartart-node"><span class="smartart-badge">7</span><span>Ajustements et capitalisation</span></div>
+          </div>
         </div>
 
         <p>Le CEHN2T conçoit également des <strong>dispositifs d’évaluation formative, continue et d’impact</strong> permettant d’apprécier les effets sociaux, éducatifs, organisationnels, culturels, territoriaux ou environnementaux des actions engagées. L’évaluation constitue ainsi un outil d’<strong>aide à la décision, d’amélioration continue et d’apprentissage organisationnel</strong>.</p>
+
+        <div class="simple-method-icons" aria-label="Formats d’intervention du CEHN2T">
+          <span class="mini-icon blue" title="Formations">
+            <svg viewBox="0 0 40 40"><path d="M5 15l15-7 15 7-15 7-15-7Z M10 18v8c6 5 14 5 20 0v-8 M35 15v10"/></svg>
+          </span>
+          <span class="mini-icon orange" title="Ateliers">
+            <svg viewBox="0 0 40 40"><path d="M11 29l8-8 M23 17l6-6 M26 8l6 6 M8 26l6 6 M15 12l13 13"/></svg>
+          </span>
+          <span class="mini-icon blue" title="Conseil">
+            <svg viewBox="0 0 40 40"><path d="M9 10h22v14H18l-7 6v-6H9V10Z M15 16h10 M15 20h7"/></svg>
+          </span>
+          <span class="mini-icon orange" title="Accompagnement">
+            <svg viewBox="0 0 40 40"><path d="M14 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm12 2a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM8 31c0-4 3-7 7-7s7 3 7 7 M18 31c0-4 3-7 7-7s7 3 7 7"/></svg>
+          </span>
+          <span class="mini-icon blue" title="Évaluation">
+            <svg viewBox="0 0 40 40"><path d="M10 31h20 M13 27V16 M20 27V10 M27 27V19"/><path d="M10 12l4-4 5 5 8-8 3 3"/></svg>
+          </span>
+        </div>
       </div>
     </details>
 
