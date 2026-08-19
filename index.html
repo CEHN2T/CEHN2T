@@ -209,6 +209,410 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
   text-underline-offset:3px;
 }
 
+
+/* V7 — Harmonisation typographique du hero */
+.hero{
+  height:390px;
+}
+.hero > .wrap{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+}
+.hero h1{
+  width:auto;
+  max-width:680px;
+  margin:0;
+  font-family:var(--serif);
+  font-size:clamp(42px,5vw,62px);
+  line-height:.98;
+  letter-spacing:-.04em;
+  font-weight:700;
+  color:#fff;
+}
+.hero .rule{
+  width:58px;
+  height:4px;
+  margin:17px 0 13px;
+  background:var(--orange);
+}
+.hero p{
+  margin:0;
+  max-width:740px;
+  font-size:13px;
+  line-height:1.5;
+  color:#fff;
+}
+
+
+/* DÉCOUVRIR LE CEHN2T */
+.home-about{
+  padding:46px 0 48px;
+  background:#fff;
+  border-bottom:1px solid #edf1f4;
+}
+.home-about-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+  gap:34px;
+  align-items:stretch;
+}
+.home-about-copy{
+  align-self:center;
+}
+.home-about-copy h2{
+  max-width:480px;
+  margin:0;
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:35px;
+  line-height:1.02;
+  letter-spacing:-.03em;
+}
+.home-about-rule{
+  width:48px;
+  height:3px;
+  margin:14px 0 14px;
+  background:var(--orange);
+}
+.home-about-copy p{
+  max-width:500px;
+  margin:0 0 11px;
+  color:#52697d;
+  font-size:11.5px;
+  line-height:1.7;
+}
+.home-about-link{
+  display:inline-flex;
+  margin-top:5px;
+  color:var(--blue);
+  font-size:10px;
+  font-weight:800;
+}
+.home-about-link:hover,
+.home-about-link:focus{
+  color:var(--orange);
+}
+.home-about-media{
+  display:grid;
+  grid-template-columns:1.35fr .85fr;
+  grid-template-rows:1fr 1fr;
+  gap:8px;
+  min-height:300px;
+}
+.home-about-photo{
+  overflow:hidden;
+  border-radius:9px;
+  background:#edf2f5;
+}
+.home-about-photo-main{
+  grid-row:1 / 3;
+}
+.home-about-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s ease;
+}
+.home-about-media:hover img{
+  transform:scale(1.025);
+}
+
+/* PROJETS — teaser vers la page dédiée */
+.home-projects{
+  padding:46px 0 50px;
+  background:#fbfcfd;
+  border-top:1px solid #edf1f4;
+  border-bottom:1px solid #edf1f4;
+}
+.home-projects-row{
+  display:grid;
+  grid-template-columns:245px minmax(0,1fr);
+  gap:30px;
+  align-items:stretch;
+}
+.home-projects-intro{
+  align-self:center;
+}
+.home-projects-intro h2{
+  margin:0 0 10px;
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:31px;
+  line-height:1.03;
+  letter-spacing:-.025em;
+}
+.home-projects-intro p{
+  margin:0 0 16px;
+  color:#536a7d;
+  font-size:10.5px;
+  line-height:1.6;
+}
+.home-projects-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.home-project-card{
+  overflow:hidden;
+  border:1px solid #dfe6ec;
+  border-radius:9px;
+  background:#fff;
+  box-shadow:0 7px 20px rgba(24,50,79,.055);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.home-project-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(24,50,79,.09);
+}
+.home-project-card img{
+  width:100%;
+  height:130px;
+  object-fit:cover;
+}
+.home-project-card-body{
+  padding:13px 14px 15px;
+}
+.home-project-card-body > span{
+  color:var(--orange);
+  font-size:8px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.home-project-card-body h3{
+  margin:5px 0 7px;
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:16px;
+  line-height:1.08;
+}
+.home-project-card-body p{
+  min-height:44px;
+  margin:0 0 10px;
+  color:#53687b;
+  font-size:9.5px;
+  line-height:1.45;
+}
+.home-project-card-body strong{
+  color:var(--blue);
+  font-size:9px;
+}
+
+@media(max-width:980px){
+  .home-about-grid,
+  .home-projects-row{
+    grid-template-columns:1fr;
+  }
+  .home-about-media{
+    min-height:320px;
+  }
+}
+@media(max-width:760px){
+  .hero{height:410px}
+  .hero h1{
+    max-width:92%;
+    font-size:39px;
+  }
+  .hero p{
+    max-width:92%;
+    font-size:12px;
+  }
+  .home-about{
+    padding:38px 0 40px;
+  }
+  .home-about-copy h2{
+    font-size:30px;
+  }
+  .home-about-media{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:190px 130px;
+    min-height:0;
+  }
+  .home-about-photo-main{
+    grid-column:1 / -1;
+    grid-row:auto;
+  }
+  .home-projects-cards{
+    grid-template-columns:1fr;
+  }
+  .home-project-card{
+    display:grid;
+    grid-template-columns:140px 1fr;
+  }
+  .home-project-card img{
+    height:100%;
+    min-height:150px;
+  }
+  .home-project-card-body p{
+    min-height:0;
+  }
+}
+@media(max-width:520px){
+  .home-project-card{
+    grid-template-columns:1fr;
+  }
+  .home-project-card img{
+    height:160px;
+  }
+}
+
+
+/* PROJETS : texte légèrement plus compact */
+.home-projects-intro p{
+  line-height:1.65;
+}
+
+/* COLLABORER — placé en conclusion de page */
+.research{
+  padding-top:34px;
+  padding-bottom:38px;
+  border-top:1px solid #edf1f4;
+}
+.research-copy .title{
+  max-width:440px;
+  font-size:31px;
+  line-height:1.05;
+}
+.research-copy .intro{
+  max-width:480px;
+}
+
+@media(max-width:900px){
+  .home-research-intro-row{
+    grid-template-columns:1fr;
+    gap:12px;
+    align-items:start;
+  }
+}
+@media(max-width:760px){
+  .home-research-intro{
+    padding-top:28px;
+  }
+  .home-research-intro h2{
+    font-size:26px;
+  }
+}
+
+
+
+
+
+/* RECHERCHE — même structure que la section "Le CEHN2T" */
+.home-research-intro{
+  padding:46px 0 48px;
+  background:#fff;
+  border-bottom:1px solid #edf1f4;
+}
+.home-research-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+  gap:34px;
+  align-items:stretch;
+}
+.home-research-copy{
+  align-self:center;
+}
+.home-research-copy h2{
+  max-width:520px;
+  margin:0;
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:31px;
+  line-height:1.06;
+  letter-spacing:-.03em;
+}
+.home-research-rule{
+  width:48px;
+  height:3px;
+  margin:14px 0 14px;
+  background:var(--orange);
+}
+.home-research-copy p{
+  max-width:500px;
+  margin:0 0 11px;
+  color:#52697d;
+  font-size:11.5px;
+  line-height:1.7;
+}
+.home-research-link{
+  display:inline-flex;
+  margin-top:5px;
+  color:var(--blue);
+  font-size:10px;
+  font-weight:800;
+}
+.home-research-link:hover,
+.home-research-link:focus{
+  color:var(--orange);
+}
+.home-research-media{
+  display:grid;
+  grid-template-columns:1.35fr .85fr;
+  grid-template-rows:1fr 1fr;
+  gap:8px;
+  min-height:300px;
+}
+.home-research-photo{
+  overflow:hidden;
+  border-radius:9px;
+  background:#edf2f5;
+}
+.home-research-photo-main{
+  grid-row:1 / 3;
+}
+.home-research-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s ease;
+}
+.home-research-media:hover img{
+  transform:scale(1.025);
+}
+
+@media(max-width:980px){
+  .home-research-grid{
+    grid-template-columns:1fr;
+  }
+  .home-research-media{
+    min-height:320px;
+  }
+}
+@media(max-width:760px){
+  .home-research-intro{
+    padding:38px 0 40px;
+  }
+  .home-research-copy h2{
+    font-size:24px;
+  }
+  .home-research-media{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:190px 130px;
+    min-height:0;
+  }
+  .home-research-photo-main{
+    grid-column:1 / -1;
+    grid-row:auto;
+  }
+}
+
+
+.home-project-card-body{
+  padding:13px 14px 16px;
+}
+.home-project-card-body p{
+  min-height:58px;
+  margin:0;
+}
+.home-project-card-body strong{
+  display:none;
+}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
@@ -240,6 +644,108 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
   </div>
 </section>
 
+<section class="home-about">
+  <div class="wrap home-about-grid">
+
+    <div class="home-about-copy">
+      <div class="eyebrow">Le CEHN2T</div>
+      <h2>Observatoire et laboratoire d’idées et d’expérimentations</h2>
+      <div class="home-about-rule"></div>
+
+      <p>
+        Le CEHN2T est une association internationale à but non lucratif qui réunit chercheurs,
+        enseignants, professionnels, étudiants et acteurs des territoires.
+      </p>
+
+      <p>
+        Nous développons des activités de recherche, formation, expérimentation, accompagnement
+        et transfert de connaissances, en France, dans l’espace francophone et à l’international.
+        Notre démarche est humaniste, éthique, inclusive, participative et éco-responsable.
+      </p>
+
+      <a class="home-about-link" target="_self" href="./le-cehn2t.html">Découvrir le CEHN2T →</a>
+    </div>
+
+    <a class="home-about-media" target="_self" href="./le-cehn2t.html" aria-label="Découvrir la page Le CEHN2T">
+      <div class="home-about-photo home-about-photo-main">
+        <img
+          src="https://images.pexels.com/photos/7495607/pexels-photo-7495607.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Groupe diversifié de professionnels en atelier collaboratif"
+          loading="lazy">
+      </div>
+      <div class="home-about-photo">
+        <img
+          src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1000"
+          alt="Équipe travaillant ensemble autour d’une table"
+          loading="lazy">
+      </div>
+      <div class="home-about-photo">
+        <img
+          src="https://images.pexels.com/photos/3811082/pexels-photo-3811082.jpeg?auto=compress&cs=tinysrgb&w=1000"
+          alt="Professionnels en échange et accompagnement"
+          loading="lazy">
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="home-research-intro">
+  <div class="wrap home-research-grid">
+
+    <div class="home-research-copy">
+      <div class="eyebrow">Recherche</div>
+
+      <h2>
+        Observer et comprendre les transformations avec les citoyens, les acteurs et les territoires.
+      </h2>
+
+      <div class="home-research-rule"></div>
+
+      <p>
+        Depuis 2024, nos collectes documentent plusieurs contextes francophones. La francophonie constitue
+        notre espace prioritaire de développement, tout en restant ouverts à des recherches et collectes
+        dans d’autres territoires à l’international.
+      </p>
+
+      <p>
+        Le CEHN2T développe des recherches collaboratives et participatives afin de comprendre
+        les transformations contemporaines, d’en anticiper les effets et de produire des connaissances
+        situées, des cadres d’analyse, des outils, des méthodes et des modèles utiles à l’action.
+      </p>
+
+      <a class="home-research-link" target="_self" href="./recherche.html">
+        Découvrir nos recherches →
+      </a>
+    </div>
+
+    <a class="home-research-media" target="_self" href="./recherche.html"
+       aria-label="Découvrir la page Recherche">
+      <div class="home-research-photo home-research-photo-main">
+        <img
+          src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Équipe travaillant ensemble autour d’une table"
+          loading="lazy">
+      </div>
+
+      <div class="home-research-photo">
+        <img
+          src="https://images.pexels.com/photos/7551442/pexels-photo-7551442.jpeg?auto=compress&cs=tinysrgb&w=1000"
+          alt="Groupe de personnes échangeant dans un cadre collectif"
+          loading="lazy">
+      </div>
+
+      <div class="home-research-photo">
+        <img
+          src="https://images.pexels.com/photos/3845126/pexels-photo-3845126.jpeg?auto=compress&cs=tinysrgb&w=1000"
+          alt="Professionnels de santé en situation de travail"
+          loading="lazy">
+      </div>
+    </a>
+
+  </div>
+</section>
+
 <section class="domains">
   <div class="wrap domain-grid">
 
@@ -252,7 +758,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     </article>
 
     <article class="domain">
-      <img src="https://images.pexels.com/photos/7551442/pexels-photo-7551442.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Groupe de personnes échangeant dans un cadre collectif" loading="lazy">
+      <img src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Groupe de personnes échangeant dans un cadre collectif" loading="lazy">
       <div class="icon">◎</div>
       <h3>Social</h3>
       <p>Étudier les transformations des liens, des communautés, des solidarités et des formes de participation.</p>
@@ -278,41 +784,61 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
   </div>
 </section>
 
-<section class="research">
-  <div class="wrap research-row">
-    <div class="research-copy">
-      <div class="eyebrow">Collaborer avec nous</div>
-      <h2 class="title">Contribuer à nos<br>recherches</h2>
-      <p class="intro">Depuis 2024, nos collectes documentent plusieurs contextes francophones. La francophonie constitue notre espace prioritaire de développement, tout en restant ouverts à des recherches et collectes dans d’autres territoires à l’international.</p>
-      <ul class="checks">
-        <li>Proposer un terrain</li>
-        <li>Participer à une collecte</li>
-        <li>Documenter une expérimentation</li>
-        <li>Co-construire une recherche</li>
-      </ul>
-      <a target="_self" class="btn" href="./nous-rejoindre.html">Proposer une collaboration →</a>
+<section class="home-projects">
+  <div class="wrap home-projects-row">
+
+    <div class="home-projects-intro">
+      <div class="eyebrow">Projets</div>
+      <h2>De la recherche au développement de solutions</h2>
+      <p>
+        En intégrant le CEHN2T, vous participez non seulement à des activités de recherche, mais également à des expérimentations et à des projets de développement.
+      </p>
+      <a class="btn" target="_self" href="./projets.html">Découvrir nos projets →</a>
     </div>
 
-    <div class="research-map-shell">
-      <div id="researchMap" aria-label="Carte interactive des terrains du CEHN2T"></div>
+    <div class="home-projects-cards">
 
-      <div class="map-stats">
-        <div class="map-stat">
-          <strong>6</strong>
-          <span>terrains documentés<br><small>données en consolidation</small></span>
+      <a class="home-project-card" target="_self" href="./projets.html">
+        <img
+          src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Équipe multiculturelle en action sur un projet de terrain"
+          loading="lazy">
+        <div class="home-project-card-body">
+          <span>Actions de recherche</span>
+          <h3>Actions de recherche</h3>
+          <p>Études, collectes et travaux scientifiques menés dans les différents axes du Centre.</p>
+          
         </div>
-        <div class="map-stat map-stat-target">
-          <strong>28</strong>
-          <span>territoires ciblés en priorité</span>
-        </div>
-      </div>
+      </a>
 
-      <div class="map-legend-glass">
-        <div><span class="map-dot red"></span>Données collectées — consolidation en cours</div>
-        <div><span class="map-dot green"></span>Francophonie ciblée en priorité</div>
-        <small>Ouverture à d’autres territoires internationaux</small>
-      </div>
+      <a class="home-project-card" target="_self" href="./projets.html">
+        <img
+          src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Groupe engagé dans un dispositif collectif et une expérimentation de terrain"
+          loading="lazy">
+        <div class="home-project-card-body">
+          <span>Dispositifs</span>
+          <h3>Expérimentations</h3>
+          <p>Living labs, ateliers et dispositifs conçus avec les acteurs et les territoires.</p>
+          
+        </div>
+      </a>
+
+      <a class="home-project-card" target="_self" href="./projets.html">
+        <img
+          src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Professionnels multiculturels en situation de coordination et développement de projet"
+          loading="lazy">
+        <div class="home-project-card-body">
+          <span>Projets</span>
+          <h3>Développements</h3>
+          <p>Projets structurants, conception d’outils, méthodes et modèles, incubation et nouvelles initiatives.</p>
+          
+        </div>
+      </a>
+
     </div>
+
   </div>
 </section>
 
@@ -338,6 +864,44 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
         <a target="_self" class="more" href="./evenements.html">Voir l’évènement →</a>
       </div>
     </article>
+  </div>
+</section>
+
+<section class="research">
+  <div class="wrap research-row">
+    <div class="research-copy">
+      <div class="eyebrow">Collaborer avec nous</div>
+      <h2 class="title">Contribuer à nos recherches, expérimentations et projets</h2>
+      <p class="intro">Vous pouvez contribuer à nos travaux en participant à des collectes de données, au design de recherches, à des partenariats ou en proposant de nouvelles expérimentations et de nouveaux projets.</p>
+      <ul class="checks">
+        <li>Participer à une collecte de données</li>
+        <li>Contribuer au design d’une recherche</li>
+        <li>Proposer un partenariat</li>
+        <li>Proposer une expérimentation ou un projet</li>
+      </ul>
+      <a target="_self" class="btn" href="./nous-rejoindre.html">Proposer une collaboration →</a>
+    </div>
+
+    <div class="research-map-shell">
+      <div id="researchMap" aria-label="Carte interactive des terrains du CEHN2T"></div>
+
+      <div class="map-stats">
+        <div class="map-stat">
+          <strong>6</strong>
+          <span>terrains documentés<br><small>données en consolidation</small></span>
+        </div>
+        <div class="map-stat map-stat-target">
+          <strong>28</strong>
+          <span>territoires ciblés en priorité</span>
+        </div>
+      </div>
+
+      <div class="map-legend-glass">
+        <div><span class="map-dot red"></span>Données collectées — consolidation en cours</div>
+        <div><span class="map-dot green"></span>Francophonie ciblée en priorité</div>
+        <small>Ouverture à d’autres territoires internationaux</small>
+      </div>
+    </div>
   </div>
 </section>
 
