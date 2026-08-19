@@ -314,7 +314,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
           <span>terrains documentés<br><small>données en consolidation</small></span>
         </div>
         <div class="map-stat map-stat-target">
-          <strong>25</strong>
+          <strong>28</strong>
           <span>territoires ciblés en priorité</span>
         </div>
       </div>
@@ -429,7 +429,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     minZoom:2,
     maxZoom:7,
     zoomSnap:.25
-  }).setView([19,-18],2.35);
+  }).setView([12,-10],1.75);
 
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
     maxZoom:19,
@@ -454,7 +454,9 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     [-18.9,47.5,'Madagascar'],[11.6,43.1,'Djibouti'],[34,9,'Tunisie'],
     [32,-5,'Maroc'],[28,3,'Algérie'],[19,-72.3,'Haïti'],[49.6,6.1,'Luxembourg'],
     [4.94,-52.33,'Guyane française'],[18.07,-63.05,'Saint-Martin'],
-    [-12.83,45.17,'Mayotte'],[-21.12,55.53,'Île de La Réunion']
+    [-12.83,45.17,'Mayotte'],[-21.12,55.53,'Île de La Réunion'],
+    [-17.54,-149.57,'Polynésie française'],[-21.30,165.49,'Nouvelle-Calédonie'],
+    [-13.77,-177.16,'Wallis-et-Futuna']
   ];
 
   function hotIcon(delay){
@@ -482,6 +484,13 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     L.marker([s[0],s[1]],{icon:targetIcon((i%7)*.28)}).addTo(map)
       .bindTooltip('<strong>'+s[2]+'</strong><br>Territoire francophone ciblé en priorité',{direction:'top',offset:[0,-7],opacity:1});
   });
+
+  var allPoints = documented.concat(targets).map(function(s){ return [s[0], s[1]]; });
+  var bounds = L.latLngBounds(allPoints);
+  map.fitBounds(bounds, {padding:[28,28]});
+
+  // Garde une vue assez large pour rendre visibles les territoires du Pacifique
+  if (map.getZoom() > 1.8) map.setZoom(1.8);
 })();
 </script>
 
