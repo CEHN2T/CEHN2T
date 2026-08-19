@@ -1193,6 +1193,356 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
   padding:0;
 }
 
+
+/* ============================================================
+   RECHERCHE V16 — structure compacte harmonisée avec "Le CEHN2T"
+   ============================================================ */
+
+/* HERO */
+.research-hero-home{
+  position:relative;
+  min-height:410px;
+  overflow:hidden;
+  background:#07182a;
+  color:#fff;
+}
+.research-hero-media,
+.research-hero-overlay{
+  position:absolute;
+  inset:0;
+}
+.research-hero-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 45%;
+  display:block;
+}
+.research-hero-overlay{
+  background:
+    linear-gradient(90deg,rgba(3,17,31,.94) 0%,rgba(3,17,31,.80) 36%,rgba(3,17,31,.40) 68%,rgba(3,17,31,.18) 100%),
+    linear-gradient(180deg,rgba(3,17,31,.08),rgba(3,17,31,.32));
+}
+.research-hero-content{
+  position:relative;
+  z-index:2;
+  min-height:410px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:34px;
+  padding-bottom:34px;
+}
+.research-hero-kicker{
+  margin:0 0 10px;
+  color:#ff9a2f;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.research-hero-home h1{
+  max-width:770px;
+  margin:0;
+  color:#fff;
+  font-family:var(--serif);
+  font-size:clamp(42px,5.1vw,64px);
+  line-height:.98;
+  letter-spacing:-.04em;
+  text-wrap:balance;
+}
+.research-hero-rule{
+  width:58px;
+  height:4px;
+  margin:18px 0 14px;
+  background:var(--orange);
+}
+.research-hero-lead{
+  max-width:980px;
+  margin:0;
+  color:rgba(255,255,255,.92);
+  font-size:13px;
+  line-height:1.55;
+  font-weight:400;
+}
+.research-hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:16px;
+}
+.research-hero-meta span{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:5px 9px;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:8.5px;
+  font-weight:800;
+  letter-spacing:.02em;
+  backdrop-filter:blur(4px);
+}
+
+/* PANNEAU : conserver visible immédiatement */
+.realizations{
+  padding-top:48px;
+  padding-bottom:54px;
+}
+.realizations-head{
+  margin-bottom:20px;
+}
+
+/* ACCORDÉONS GÉNÉRAUX */
+.research-info-accordion,
+.axis-detail-accordion{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:#fff;
+  box-shadow:0 12px 30px rgba(8,47,97,.055);
+}
+.research-info-accordion summary,
+.axis-detail-accordion summary{
+  list-style:none;
+  cursor:pointer;
+}
+.research-info-accordion summary::-webkit-details-marker,
+.axis-detail-accordion summary::-webkit-details-marker{
+  display:none;
+}
+.research-toggle{
+  flex:0 0 34px;
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid #dfe7ee;
+  background:#fff;
+  color:var(--orange);
+  font-size:21px;
+  font-weight:400;
+  line-height:1;
+}
+.research-toggle::before{content:"+"}
+details[open] > summary .research-toggle::before{content:"−"}
+.research-info-accordion[open],
+.axis-detail-accordion[open]{
+  border-color:#ccd9e6;
+  box-shadow:0 16px 36px rgba(8,47,97,.085);
+}
+
+/* NOTRE APPROCHE */
+.compact-approach{
+  padding:54px 0;
+  background:#fff;
+}
+.research-info-accordion summary{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 36px;
+  gap:18px;
+  align-items:center;
+  padding:20px 22px;
+}
+.research-info-heading .eyebrow{
+  margin-bottom:5px;
+}
+.research-info-heading h2{
+  margin:0 0 5px;
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:30px;
+  line-height:1.05;
+}
+.research-info-heading > p:last-child{
+  margin:0;
+  color:#65798c;
+  font-size:11px;
+  line-height:1.55;
+}
+.research-info-body{
+  padding:22px 24px 25px;
+  border-top:1px solid #edf1f4;
+}
+.research-info-body .approach-grid{
+  margin:0;
+}
+
+/* AXES */
+.axes-section{
+  padding-top:54px;
+  padding-bottom:48px;
+}
+.section-head{
+  margin-bottom:24px;
+}
+.axis-card{
+  min-height:365px;
+}
+.axis-link{
+  color:var(--blue2);
+  font-weight:800;
+}
+.axis-link:hover,
+.axis-link:focus{
+  color:var(--orange);
+}
+
+/* DÉTAILS DES AXES EN + / − */
+.axis-detail-accordion{
+  width:1050px;
+  max-width:calc(100% - 44px);
+  margin:0 auto 15px;
+}
+.axis-detail-accordion summary{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 36px;
+  gap:18px;
+  align-items:center;
+  padding:19px 22px;
+}
+.axis-accordion-heading{
+  display:grid;
+  grid-template-columns:48px minmax(0,1fr);
+  gap:16px;
+  align-items:center;
+}
+.axis-accordion-num{
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:#f1f6fa;
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:18px;
+  font-weight:700;
+}
+.axis-accordion-heading .eyebrow{
+  margin:0 0 3px;
+}
+.axis-accordion-heading h2{
+  margin:0 0 4px;
+  color:var(--blue);
+  font-family:var(--serif);
+  font-size:27px;
+  line-height:1;
+}
+.axis-accordion-heading > div > p:last-child{
+  margin:0;
+  color:#64798d;
+  font-size:10.5px;
+  line-height:1.5;
+}
+.axis-accordion-body{
+  padding:0 0 28px;
+  border-top:1px solid #edf1f4;
+}
+.axis-accordion-body .axis-detail-grid{
+  padding-top:28px;
+}
+.axis-accordion-body .axis-detail-media{
+  top:102px;
+}
+.axis-accordion--social .axis-accordion-num{
+  color:#237f75;
+  background:#f0f9f7;
+}
+.axis-accordion--health .axis-accordion-num{
+  color:#b94f49;
+  background:#fff4f3;
+}
+.axis-accordion--culture .axis-accordion-num{
+  color:#b96a16;
+  background:#fff7ec;
+}
+
+/* Le détail n'est plus une section pleine hauteur */
+.axis-detail{
+  padding:0;
+  border:0;
+}
+.axis-detail--social,
+.axis-detail--health,
+.axis-detail--culture{
+  background:transparent;
+}
+
+/* CTA final */
+.research-cta{
+  margin-top:54px;
+}
+
+@media(max-width:900px){
+  .research-info-body .approach-grid{
+    grid-template-columns:1fr;
+  }
+  .axis-detail-accordion{
+    max-width:calc(100% - 30px);
+  }
+}
+@media(max-width:760px){
+  .research-hero-home,
+  .research-hero-content{
+    min-height:370px;
+  }
+  .research-hero-overlay{
+    background:
+      linear-gradient(90deg,rgba(3,17,31,.92),rgba(3,17,31,.58)),
+      linear-gradient(180deg,rgba(3,17,31,.16),rgba(3,17,31,.42));
+  }
+  .research-hero-home h1{
+    max-width:94%;
+    font-size:39px;
+  }
+  .research-hero-lead{
+    max-width:94%;
+    font-size:12px;
+  }
+  .research-info-accordion summary,
+  .axis-detail-accordion summary{
+    padding:16px 15px;
+  }
+  .research-info-heading h2{
+    font-size:23px;
+  }
+  .axis-accordion-heading{
+    grid-template-columns:40px minmax(0,1fr);
+    gap:11px;
+  }
+  .axis-accordion-num{
+    width:38px;
+    height:38px;
+    font-size:15px;
+  }
+  .axis-accordion-heading h2{
+    font-size:22px;
+  }
+  .axis-accordion-body{
+    padding-bottom:20px;
+  }
+  .axis-accordion-body .axis-detail-grid{
+    padding-top:20px;
+  }
+}
+@media(max-width:520px){
+  .research-hero-home,
+  .research-hero-content{
+    min-height:350px;
+  }
+  .research-hero-home h1{
+    font-size:33px;
+  }
+  .research-hero-meta{
+    gap:6px;
+  }
+}
+
 </style>
 </head>
 
@@ -1218,32 +1568,30 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
 
 <main>
 
-<section class="research-hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Recherche</p>
-      <h1>Observer et comprendre les transformations <span>avec les citoyens, les acteurs et les territoires.</span></h1>
-    </div>
-    <div class="hero-intro">
-      <p>
-        Nos recherches visent à comprendre les transformations et les mutations sociétales afin d’en anticiper les effets
-        et d’aider les citoyens, les professionnels, les organisations et les territoires à s’y préparer et à agir.
-      </p>
-      <p>
-        Dans un contexte marqué par des défis technologiques, climatiques, sociaux, culturels, éducatifs et organisationnels,
-        le CEHN2T produit des connaissances utiles pour <strong>éclairer les décisions, sensibiliser, conseiller, former
-        et accompagner les acteurs du changement</strong>.
-      </p>
-      <p>
-        Nous cherchons également à transformer les résultats de la recherche en <strong>ressources directement mobilisables
-        pour l’action</strong> : cadres d’analyse, outils, méthodes, modèles, dispositifs et repères permettant d’expérimenter,
-        de développer des projets, de concevoir des solutions et de résoudre des problèmes concrets.
-      </p>
-      <p>
-        La recherche constitue ainsi un point d’appui pour <strong>comprendre, anticiper, expérimenter et agir</strong>.
-        Cette démarche repose sur une approche collaborative et participative, construite avec les personnes et les territoires
-        concernés, au plus près de leurs réalités, de leurs besoins et de leurs expériences.
-      </p>
+<section class="research-hero-home">
+  <div class="research-hero-media" aria-hidden="true">
+    <img
+      src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=2000"
+      alt=""
+      loading="eager">
+  </div>
+  <div class="research-hero-overlay"></div>
+
+  <div class="wrap research-hero-content">
+    <p class="research-hero-kicker">Recherche</p>
+    <h1>Observer et comprendre les transformations avec les citoyens, les acteurs et les territoires.</h1>
+    <div class="research-hero-rule"></div>
+
+    <p class="research-hero-lead">
+      Le CEHN2T développe des recherches collaboratives et participatives pour comprendre les transformations et mutations sociétales, en anticiper les effets et produire des connaissances situées, des cadres d’analyse, des outils, des méthodes et des modèles permettant aux citoyens, aux acteurs, aux organisations et aux territoires d’agir.
+    </p>
+
+    <div class="research-hero-meta" aria-label="Finalités de la recherche au CEHN2T">
+      <span>Observer</span>
+      <span>Comprendre</span>
+      <span>Anticiper</span>
+      <span>Expérimenter</span>
+      <span>Agir</span>
     </div>
   </div>
 </section>
@@ -1567,42 +1915,57 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
 
   </section>
 
-<section class="approach">
-  <div class="wrap approach-grid">
-    <div class="approach-copy">
-      <p class="eyebrow">Notre approche</p>
-      <h2>Une recherche collaborative, participative et ancrée dans les territoires</h2>
-      <p>
-        Le CEHN2T développe des recherches menées avec des chercheurs en France, dans l’espace francophone
-        et à l’international, mais également avec les acteurs des territoires, les professionnels,
-        les associations, les organisations et les citoyens concernés.
-      </p>
-      <p>
-        Nous considérons les publics et les acteurs de terrain non comme de simples objets d’étude,
-        mais comme des partenaires pouvant contribuer à l’identification des problématiques,
-        à la production et à l’interprétation des données, à l’expérimentation et à la formulation
-        de pistes d’action.
-      </p>
-    </div>
+<section class="approach compact-approach">
+  <div class="wrap">
 
-    <div class="approach-points">
-      <div class="approach-point">
-        <strong>01</strong>
-        <div><h3>Co-construire</h3><p>Associer chercheurs, acteurs, professionnels et citoyens à la définition des problématiques.</p></div>
+    <details class="research-info-accordion">
+      <summary>
+        <div class="research-info-heading">
+          <p class="eyebrow">Notre approche</p>
+          <h2>Une recherche collaborative, participative et ancrée dans les territoires</h2>
+          <p>Comprendre pour anticiper, expérimenter et agir avec les personnes et les territoires concernés.</p>
+        </div>
+        <span class="research-toggle" aria-hidden="true"></span>
+      </summary>
+
+      <div class="research-info-body">
+        <div class="approach-grid">
+          <div class="approach-copy">
+            <p>
+              Le CEHN2T développe des recherches menées avec des chercheurs en France, dans l’espace francophone
+              et à l’international, mais également avec les acteurs des territoires, les professionnels,
+              les associations, les organisations et les citoyens concernés.
+            </p>
+            <p>
+              Nous considérons les publics et les acteurs de terrain non comme de simples objets d’étude,
+              mais comme des partenaires pouvant contribuer à l’identification des problématiques,
+              à la production et à l’interprétation des données, à l’expérimentation et à la formulation
+              de pistes d’action.
+            </p>
+          </div>
+
+          <div class="approach-points">
+            <div class="approach-point">
+              <strong>01</strong>
+              <div><h3>Co-construire</h3><p>Associer chercheurs, acteurs, professionnels et citoyens à la définition des problématiques.</p></div>
+            </div>
+            <div class="approach-point">
+              <strong>02</strong>
+              <div><h3>Contextualiser</h3><p>Comprendre les transformations à partir des réalités sociales, culturelles et territoriales.</p></div>
+            </div>
+            <div class="approach-point">
+              <strong>03</strong>
+              <div><h3>Expérimenter</h3><p>Mettre à l’épreuve des dispositifs et produire des connaissances transférables.</p></div>
+            </div>
+            <div class="approach-point">
+              <strong>04</strong>
+              <div><h3>Partager</h3><p>Diffuser les résultats sous des formes scientifiques, professionnelles et accessibles aux citoyens.</p></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="approach-point">
-        <strong>02</strong>
-        <div><h3>Contextualiser</h3><p>Comprendre les transformations à partir des réalités sociales, culturelles et territoriales.</p></div>
-      </div>
-      <div class="approach-point">
-        <strong>03</strong>
-        <div><h3>Expérimenter</h3><p>Mettre à l’épreuve des dispositifs et produire des connaissances transférables.</p></div>
-      </div>
-      <div class="approach-point">
-        <strong>04</strong>
-        <div><h3>Partager</h3><p>Diffuser les résultats sous des formes scientifiques, professionnelles et accessibles aux citoyens.</p></div>
-      </div>
-    </div>
+    </details>
+
   </div>
 </section>
 
@@ -1678,8 +2041,21 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
   </div>
 </section>
 
-<section class="axis-detail" id="education">
-  <div class="wrap axis-detail-grid">
+<details class="axis-detail-accordion" id="education">
+  <summary>
+    <div class="axis-accordion-heading">
+      <span class="axis-accordion-num">01</span>
+      <div>
+        <p class="eyebrow">Axe de recherche 01</p>
+        <h2>Éducation</h2>
+        <p>Comprendre les transformations éducatives et produire des ressources pour accompagner l’action.</p>
+      </div>
+    </div>
+    <span class="research-toggle" aria-hidden="true"></span>
+  </summary>
+
+  <div class="axis-accordion-body">
+    <div class="wrap axis-detail-grid">
 
     <div class="axis-detail-media">
       <div class="axis-detail-image">
@@ -1692,10 +2068,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     </div>
 
     <div class="axis-detail-copy">
-      <a class="axis-back" href="#axes-recherche" aria-label="Revenir aux quatre axes de recherche">
-        ← Retour aux axes de recherche
-      </a>
-      <p class="eyebrow">Axe de recherche 01</p>
+<p class="eyebrow">Axe de recherche 01</p>
       <h2>Éducation</h2>
 
       <p>
@@ -1759,10 +2132,24 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     </div>
 
   </div>
-</section>
+  </div>
+</details>
 
-<section class="axis-detail axis-detail--social" id="social">
-  <div class="wrap axis-detail-grid">
+<details class="axis-detail-accordion axis-accordion--social" id="social">
+  <summary>
+    <div class="axis-accordion-heading">
+      <span class="axis-accordion-num">02</span>
+      <div>
+        <p class="eyebrow">Axe de recherche 02</p>
+        <h2>Social</h2>
+        <p>Comprendre les transformations sociales, les vulnérabilités et les capacités d’adaptation des collectifs.</p>
+      </div>
+    </div>
+    <span class="research-toggle" aria-hidden="true"></span>
+  </summary>
+
+  <div class="axis-accordion-body">
+    <div class="wrap axis-detail-grid">
 
     <div class="axis-detail-media">
       <div class="axis-detail-image">
@@ -1775,11 +2162,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     </div>
 
     <div class="axis-detail-copy">
-      <a class="axis-back" href="#axes-recherche" aria-label="Revenir aux quatre axes de recherche">
-        ← Retour aux axes de recherche
-      </a>
-
-      <p class="eyebrow">Axe de recherche 02</p>
+<p class="eyebrow">Axe de recherche 02</p>
       <h2>Social</h2>
 
       <p>
@@ -1849,10 +2232,24 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     </div>
 
   </div>
-</section>
+  </div>
+</details>
 
-<section class="axis-detail axis-detail--health" id="sante">
-  <div class="wrap axis-detail-grid">
+<details class="axis-detail-accordion axis-accordion--health" id="sante">
+  <summary>
+    <div class="axis-accordion-heading">
+      <span class="axis-accordion-num">03</span>
+      <div>
+        <p class="eyebrow">Axe de recherche 03</p>
+        <h2>Santé</h2>
+        <p>Un axe en phase d’idéation à construire avec des spécialistes du domaine.</p>
+      </div>
+    </div>
+    <span class="research-toggle" aria-hidden="true"></span>
+  </summary>
+
+  <div class="axis-accordion-body">
+    <div class="wrap axis-detail-grid">
 
     <div class="axis-detail-media">
       <div class="axis-detail-image">
@@ -1865,11 +2262,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     </div>
 
     <div class="axis-detail-copy">
-      <a class="axis-back" href="#axes-recherche" aria-label="Revenir aux quatre axes de recherche">
-        ← Retour aux axes de recherche
-      </a>
-
-      <p class="eyebrow">Axe de recherche 03</p>
+<p class="eyebrow">Axe de recherche 03</p>
       <h2>Santé</h2>
 
       <p>
@@ -1936,10 +2329,24 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     </div>
 
   </div>
-</section>
+  </div>
+</details>
 
-<section class="axis-detail axis-detail--culture" id="culture">
-  <div class="wrap axis-detail-grid">
+<details class="axis-detail-accordion axis-accordion--culture" id="culture">
+  <summary>
+    <div class="axis-accordion-heading">
+      <span class="axis-accordion-num">04</span>
+      <div>
+        <p class="eyebrow">Axe de recherche 04</p>
+        <h2>Culture</h2>
+        <p>Comprendre les transformations culturelles, les médiations et les nouvelles formes de création et de diffusion.</p>
+      </div>
+    </div>
+    <span class="research-toggle" aria-hidden="true"></span>
+  </summary>
+
+  <div class="axis-accordion-body">
+    <div class="wrap axis-detail-grid">
 
     <div class="axis-detail-media">
       <div class="axis-detail-image">
@@ -1952,11 +2359,7 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     </div>
 
     <div class="axis-detail-copy">
-      <a class="axis-back" href="#axes-recherche" aria-label="Revenir aux quatre axes de recherche">
-        ← Retour aux axes de recherche
-      </a>
-
-      <p class="eyebrow">Axe de recherche 04</p>
+<p class="eyebrow">Axe de recherche 04</p>
       <h2>Culture</h2>
 
       <p>
@@ -2028,7 +2431,8 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
     </div>
 
   </div>
-</section>
+  </div>
+</details>
 
 <section class="research-cta">
   <div class="wrap">
@@ -2620,6 +3024,51 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
 
 })();
 
+</script>
+
+
+<script>
+(function(){
+  const axisLinks = document.querySelectorAll('.axis-link[href^="#"]');
+
+  function openAxisFromHash(hash, smooth) {
+    if (!hash) return;
+    const target = document.querySelector(hash);
+    if (!target || target.tagName.toLowerCase() !== 'details') return;
+
+    target.open = true;
+
+    window.requestAnimationFrame(function(){
+      target.scrollIntoView({
+        behavior: smooth ? 'smooth' : 'auto',
+        block: 'start'
+      });
+    });
+  }
+
+  axisLinks.forEach(function(link){
+    link.addEventListener('click', function(event){
+      const hash = link.getAttribute('href');
+      const target = document.querySelector(hash);
+      if (!target || target.tagName.toLowerCase() !== 'details') return;
+
+      event.preventDefault();
+      history.replaceState(null, '', hash);
+      target.open = true;
+
+      window.requestAnimationFrame(function(){
+        target.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'start'
+        });
+      });
+    });
+  });
+
+  if (window.location.hash) {
+    openAxisFromHash(window.location.hash, false);
+  }
+})();
 </script>
 
 </body>
