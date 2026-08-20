@@ -749,6 +749,71 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
   color:#28694b;
 }
 
+
+/* Réseaux sociaux — harmonisés avec l’index validé */
+.footer-main{
+  grid-template-columns:220px .9fr 1.05fr 1.12fr .72fr!important;
+  gap:30px!important;
+}
+.footer-follow{
+  min-width:120px;
+}
+.social-icons{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:9px;
+}
+.social-link{
+  width:34px;
+  height:34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  overflow:hidden;
+  text-decoration:none;
+  transition:transform .18s ease,opacity .18s ease;
+}
+.social-link:hover,
+.social-link:focus-visible{
+  transform:translateY(-2px);
+  opacity:.9;
+}
+.social-link svg{
+  width:34px;
+  height:34px;
+  display:block;
+}
+.social-link.linkedin{
+  background:#0A66C2;
+}
+.linkedin-mark{
+  display:block;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:22px;
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-1.2px;
+  transform:translateY(-1px);
+}
+@media(max-width:1100px){
+  .footer-main{
+    grid-template-columns:1fr 1fr 1fr!important;
+  }
+}
+@media(max-width:760px){
+  .footer-main{
+    grid-template-columns:1fr 1fr!important;
+  }
+}
+@media(max-width:520px){
+  .footer-main{
+    grid-template-columns:1fr!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1120,6 +1185,33 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:#fff;padding-top:
       <p>Contribuez au développement de nos recherches, expérimentations et rencontres scientifiques.</p>
       <a class="donate" href="mailto:contact@cehn2t.fr?subject=Soutenir%20le%20CEHN2T">Faire un don</a>
     </div>
+
+    <div class="footer-col footer-follow">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons" aria-label="Réseaux sociaux du CEHN2T">
+        <a class="social-link linkedin" href="https://www.linkedin.com/" target="_blank"
+           rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <span class="linkedin-mark" aria-hidden="true">in</span>
+        </a>
+
+        <a class="social-link youtube" href="https://www.youtube.com/" target="_blank"
+           rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="1.5" y="4.5" width="21" height="15" rx="4.5" fill="#ff0033"></rect>
+            <path d="M10 8.7l6 3.3-6 3.3z" fill="#fff"></path>
+          </svg>
+        </a>
+
+        <a class="social-link xbrand" href="https://x.com/" target="_blank"
+           rel="noopener noreferrer" aria-label="X" title="X">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="21" height="21" rx="4" fill="#050505"></rect>
+            <path d="M6.8 6.1h3.4l2.45 3.35 2.9-3.35h1.55l-3.75 4.35 4.05 5.55H14l-2.6-3.65L8.25 16H6.7l4-4.65z" fill="#fff"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
   </div>
 
   <div class="wrap footer-bottom">
