@@ -1,0 +1,29 @@
+# CEHN2T — robots.txt
+# Objectif : SEO ouvert + moteurs de recherche IA autorisés
+#            + exclusion des principaux crawlers d'entraînement IA.
+
+# Moteurs de recherche classiques
+User-agent: *
+Allow: /
+
+# OpenAI — recherche ChatGPT : autorisée
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI — entraînement : refusé
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic — crawler Claude : refusé
+User-agent: ClaudeBot
+Disallow: /
+
+# Perplexity — recherche et citation : autorisée
+User-agent: PerplexityBot
+Allow: /
+
+# Google — contrôle distinct des usages Gemini / entraînement
+User-agent: Google-Extended
+Disallow: /
+
+Sitemap: https://cehn2t.fr/sitemap.xml
