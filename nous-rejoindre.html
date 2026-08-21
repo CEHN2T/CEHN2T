@@ -573,6 +573,81 @@ footer a:hover{color:#fff}
   text-decoration-thickness:2px;
 }
 
+
+/* CEHN2T — cotisation annuelle via PayPal (désactivée en attente d’activation) */
+.membership-fee{
+  padding:12px 0 38px;
+}
+.membership-fee-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:18px 20px;
+  border:1px solid #e1e7ed;
+  border-radius:12px;
+  background:#f8fafc;
+}
+.membership-fee h2{
+  margin:0 0 6px;
+  color:#082f61;
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:23px;
+  line-height:1.08;
+}
+.membership-fee p{
+  margin:0;
+  max-width:620px;
+  color:#5f7386;
+  font-size:9.5px;
+  line-height:1.55;
+}
+.membership-fee-action{
+  flex:0 0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:6px;
+}
+.paypal-membership-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:38px;
+  padding:8px 14px;
+  border:0;
+  border-radius:7px;
+  background:#ffc439;
+  color:#111;
+  font:inherit;
+  font-size:9px;
+  font-weight:800;
+  line-height:1;
+  box-shadow:0 1px 0 rgba(0,0,0,.12);
+  opacity:.82;
+  cursor:not-allowed;
+}
+.paypal-membership-button:disabled{
+  filter:saturate(.88);
+}
+.paypal-membership-button strong{
+  color:#003087;
+  font-weight:900;
+}
+.membership-fee-note{
+  color:#7c8fa1;
+  font-size:8px;
+  line-height:1.35;
+}
+
+@media(max-width:760px){
+  .membership-fee-box{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -733,6 +808,33 @@ footer a:hover{color:#fff}
        target="_blank" rel="noopener noreferrer">Accéder au formulaire →</a>
   </div>
 </section>
+</section>
+
+
+<section class="membership-fee" aria-labelledby="cotisation-title">
+  <div class="wrap">
+    <div class="membership-fee-box">
+      <div>
+        <div class="section-kicker">Membres du CEHN2T</div>
+        <h2 id="cotisation-title">Cotisation des membres</h2>
+        <p>
+          Les membres du CEHN2T pourront régler leur cotisation annuelle en ligne via PayPal.
+        </p>
+      </div>
+
+      <div class="membership-fee-action">
+        <button class="paypal-membership-button"
+                type="button"
+                disabled
+                aria-disabled="true"
+                title="Paiement PayPal bientôt disponible">
+          <span class="paypal-mark" aria-hidden="true">P</span>
+          <span>Régler ma cotisation via <strong>PayPal</strong></span>
+        </button>
+        <span class="membership-fee-note">Paiement bientôt disponible.</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 </main>
