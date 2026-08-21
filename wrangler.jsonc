@@ -1,9 +1,8 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cehn2t",
   "compatibility_date": "2026-08-21",
   "assets": {
-    "directory": ".",
-    "html_handling": "none"
+    "directory": "./",
+    "html_handling": "auto-trailing-slash"
   }
 }
