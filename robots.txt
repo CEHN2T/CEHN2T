@@ -1,29 +1,100 @@
 # CEHN2T — robots.txt
-# Objectif : SEO ouvert + moteurs de recherche IA autorisés
-#            + exclusion des principaux crawlers d'entraînement IA.
+# Objectif : SEO ouvert + accès aux principaux crawlers IA occidentaux
+#            + blocage explicite de plusieurs crawlers non occidentaux connus.
+#
+# Limite importante :
+# robots.txt fonctionne par nom de crawler (User-agent), pas par nationalité
+# ou pays d'origine. Les robots non identifiés, nouveaux ou malveillants
+# peuvent ignorer ces règles. Pour un blocage géographique strict, utiliser
+# aussi les règles Cloudflare/WAF.
 
-# Moteurs de recherche classiques
+# ==========================================================
+# MOTEURS DE RECHERCHE CLASSIQUES
+# ==========================================================
 User-agent: *
 Allow: /
 
-# OpenAI — recherche ChatGPT : autorisée
+# Google Search
+User-agent: Googlebot
+Allow: /
+
+# Microsoft Bing / Copilot
+User-agent: Bingbot
+Allow: /
+
+# Apple Search / Siri / Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+# ==========================================================
+# IA OCCIDENTALES — AUTORISÉES
+# ==========================================================
+
+# OpenAI — recherche ChatGPT
 User-agent: OAI-SearchBot
 Allow: /
 
-# OpenAI — entraînement : refusé
+# OpenAI — navigation à la demande d'un utilisateur
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI — entraînement / amélioration des modèles
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
-# Anthropic — crawler Claude : refusé
+# OpenAI — crawler publicitaire / validation
+User-agent: OAI-AdsBot
+Allow: /
+
+# Anthropic — Claude
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
-# Perplexity — recherche et citation : autorisée
+# Perplexity
 User-agent: PerplexityBot
 Allow: /
 
-# Google — contrôle distinct des usages Gemini / entraînement
+# Google — Gemini / Vertex AI / usages IA étendus
 User-agent: Google-Extended
+Allow: /
+
+# Apple — contrôle d'usage pour entraînement des modèles Apple
+User-agent: Applebot-Extended
+Allow: /
+
+# ==========================================================
+# CRAWLERS NON OCCIDENTAUX CONNUS — BLOQUÉS
+# ==========================================================
+
+# ByteDance / Chine
+User-agent: Bytespider
 Disallow: /
 
+# Baidu / Chine
+User-agent: Baiduspider
+Disallow: /
+
+# Huawei / Chine
+User-agent: PetalBot
+Disallow: /
+
+# Yandex / Russie
+User-agent: YandexBot
+Disallow: /
+
+User-agent: YandexImages
+Disallow: /
+
+User-agent: YandexVideo
+Disallow: /
+
+User-agent: YandexMedia
+Disallow: /
+
+User-agent: YandexNews
+Disallow: /
+
+# ==========================================================
+# SITEMAP
+# ==========================================================
 Sitemap: https://cehn2t.fr/sitemap.xml
