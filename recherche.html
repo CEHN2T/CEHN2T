@@ -2086,6 +2086,126 @@ details[open] > summary .research-toggle::before{content:"−"}
 }
 
 </style>
+
+<style>
+/* =========================================================
+   CORRECTION MOBILE — AXES DE RECHERCHE
+   Empêche le contenu des accordéons d'être rogné/recouvert
+   sur smartphone (iOS / Android).
+   ========================================================= */
+@media (max-width: 760px) {
+
+  /* L'accordéon doit grandir avec tout son contenu */
+  .axis-detail-accordion,
+  .axis-detail-accordion[open],
+  .axis-accordion-body {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Sur mobile, on abandonne la grille 2 colonnes du desktop */
+  .axis-accordion-body .axis-detail-grid,
+  .axis-detail-grid {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 20px 14px 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* L'image revient complètement dans le flux normal */
+  .axis-detail-media,
+  .axis-accordion-body .axis-detail-media {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 0 22px !important;
+    z-index: 1 !important;
+  }
+
+  .axis-detail-image {
+    width: 100% !important;
+    height: auto !important;
+    overflow: hidden !important;
+    border-radius: 14px !important;
+  }
+
+  .axis-detail-image img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+  }
+
+  /* Le texte commence toujours sous l'image */
+  .axis-detail-copy {
+    position: relative !important;
+    z-index: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    clear: both !important;
+    overflow: visible !important;
+  }
+
+  .axis-detail-copy > p,
+  .axis-detail-block,
+  .axis-detail-conclusion,
+  .topic-list {
+    position: relative !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .axis-detail-copy > p {
+    margin: 0 0 16px !important;
+    font-size: 12px !important;
+    line-height: 1.75 !important;
+  }
+
+  /* Un peu plus d'espace avant le premier texte de l'axe */
+  .axis-detail-copy > .eyebrow:first-child {
+    margin-top: 0 !important;
+    margin-bottom: 9px !important;
+  }
+
+  /* Évite qu'un ancêtre de l'accordéon coupe le contenu */
+  .axes-section,
+  #axes-recherche,
+  main {
+    overflow: visible !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .axis-detail-accordion {
+    max-width: calc(100% - 20px) !important;
+  }
+
+  .axis-accordion-body .axis-detail-grid,
+  .axis-detail-grid {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .axis-detail-image img {
+    aspect-ratio: 4 / 3 !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
