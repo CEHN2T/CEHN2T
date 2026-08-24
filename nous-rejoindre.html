@@ -373,7 +373,7 @@ footer a:hover{color:#fff}
 
 
 
-/* CEHN2T — bouton PayPal visible mais non actif */
+/* CEHN2T — dons PayPal */
 .paypal-donate-wrap{
   display:flex;
   flex-direction:column;
@@ -397,8 +397,9 @@ footer a:hover{color:#fff}
   font-weight:800;
   line-height:1;
   box-shadow:0 1px 0 rgba(0,0,0,.12);
-  opacity:.82;
-  cursor:not-allowed;
+  opacity:1;
+  cursor:pointer;
+  text-decoration:none;
 }
 .paypal-donate-button:disabled{
   filter:saturate(.88);
@@ -425,6 +426,25 @@ footer a:hover{color:#fff}
   color:#9fb0bf!important;
   font-size:8px!important;
   line-height:1.35;
+}
+.donate-panel{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-top:14px;
+  padding:16px;
+  border:1px solid #e4ebf1;
+  border-radius:12px;
+  background:#fff;
+}
+.donate-copy{flex:1}
+.donate-copy p{margin:0 0 12px}
+.donate-qr-link{display:block;flex:0 0 auto;padding:7px;border:1px solid #dce6ef;border-radius:10px;background:#fff}
+.donate-qr{display:block;width:118px;height:118px;image-rendering:auto}
+.donate-qr-caption{display:block;margin-top:5px;color:#60758a;font-size:8px;text-align:center}
+@media(max-width:560px){
+  .donate-panel{align-items:flex-start;flex-direction:column}
+  .donate-qr-link{align-self:center}
 }
 
 
@@ -753,7 +773,7 @@ footer a:hover{color:#fff}
         </div>
       </details>
 
-      <details class="join-card">
+      <details class="join-card" open>
         <summary>
           <div class="card-num">3</div>
           <div class="card-head">
@@ -768,7 +788,19 @@ footer a:hover{color:#fff}
           <div class="tags">
             <span class="tag">Mécénat</span><span class="tag">Sponsoring</span><span class="tag">Bienfaiteur</span><span class="tag">Ressources</span>
           </div>
-          <a class="btn orange" href="https://forms.gle/hZz2Uzbryday4JGA9" target="_blank" rel="noopener noreferrer">Soutenir nos missions →</a>
+          <div class="donate-panel">
+            <div class="donate-copy">
+              <p>Faites un don sécurisé via PayPal pour soutenir les recherches, expérimentations et actions du CEHN2T.</p>
+              <a class="paypal-donate-button" href="https://www.paypal.com/donate/?hosted_button_id=TW2ZKATXWLN3L" target="_blank" rel="noopener noreferrer" aria-label="Faire un don au CEHN2T via PayPal">
+                <span class="paypal-mark" aria-hidden="true">P</span>
+                <span class="paypal-button-text">Faire un don via <strong>PayPal</strong></span>
+              </a>
+            </div>
+            <a class="donate-qr-link" href="https://www.paypal.com/donate/?hosted_button_id=TW2ZKATXWLN3L" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la page de don PayPal du CEHN2T">
+              <img class="donate-qr" src="data:image/png;base64,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" width="175" height="175" alt="QR code pour faire un don au CEHN2T via PayPal">
+              <span class="donate-qr-caption">Scanner pour donner</span>
+            </a>
+          </div>
         </div>
       </details>
 
@@ -871,15 +903,14 @@ footer a:hover{color:#fff}
     <div>
       <h4>Faire un don</h4>
 <div class="paypal-donate-wrap">
-        <button class="paypal-donate-button"
-                type="button"
-                disabled
-                aria-disabled="true"
-                title="Paiement PayPal bientôt disponible">
+        <a class="paypal-donate-button"
+           href="https://www.paypal.com/donate/?hosted_button_id=TW2ZKATXWLN3L"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Faire un don au CEHN2T via PayPal">
           <span class="paypal-mark" aria-hidden="true">P</span>
           <span class="paypal-button-text">Faire un don via <strong>PayPal</strong></span>
-        </button>
-        <span class="paypal-note">Paiement PayPal bientôt disponible.</span>
+        </a>
+        <span class="paypal-note">Paiement sécurisé sur PayPal.</span>
       </div>
     </div>
     <div>
