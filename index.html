@@ -2213,6 +2213,20 @@ footer{background:linear-gradient(90deg,#062c58,#0b3d73);color:white;padding-top
 <script>
 window.CEHN2T_EVENTS_FALLBACK = [
   {
+    "id": "claude-up-2026",
+    "title": "Claude : Initiation à l’usage responsable de l’intelligence artificielle",
+    "start": "2026-12-11",
+    "end": "2026-12-11",
+    "place": "UP19 · Université Populaire de Mulhouse",
+    "location": "Mulhouse",
+    "placeUrl": "https://www.universitepopulaire.fr/lieux/up19-8.html",
+    "type": "Atelier",
+    "description": "Le vendredi 11 décembre 2026 à 18h00 · 1 séance d’une durée totale de 2 h 30 à l’Université Populaire de Mulhouse.",
+    "tags": ["Claude", "IA responsable", "Atelier"],
+    "visual": "photo",
+    "image": "https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg?auto=compress&cs=tinysrgb&w=900"
+  },
+  {
     "id": "chatgpt-up-2026",
     "title": "Atelier ChatGPT — Initiation à l’usage responsable de l’IA",
     "start": "2026-09-04",
@@ -2327,7 +2341,9 @@ window.CEHN2T_EVENTS_FALLBACK = [
 <script src="./events-data.js"></script>
 <script>
 (() => {
-  const allEvents = Array.isArray(window.CEHN2T_EVENTS) ? window.CEHN2T_EVENTS : (Array.isArray(window.CEHN2T_EVENTS_FALLBACK) ? window.CEHN2T_EVENTS_FALLBACK : []);
+  const baseEvents = Array.isArray(window.CEHN2T_EVENTS) ? window.CEHN2T_EVENTS : (Array.isArray(window.CEHN2T_EVENTS_FALLBACK) ? window.CEHN2T_EVENTS_FALLBACK : []);
+  const claudeEvent = window.CEHN2T_EVENTS_FALLBACK.find(event => event.id === 'claude-up-2026');
+  const allEvents = [...baseEvents.filter(event => event.id !== 'claude-up-2026'), claudeEvent];
   const track = document.getElementById('home-events-track');
   const carousel = document.querySelector('.events-carousel');
   const dotsContainer = document.querySelector('.carousel-dots');
@@ -2391,7 +2407,7 @@ window.CEHN2T_EVENTS_FALLBACK = [
         </div>
         ${visual(event)}
         <div class="event-info">
-          <small>${esc(event.location)} · ${esc(event.place)}</small>
+          <small>${event.placeUrl ? `<a href="${esc(event.placeUrl)}" target="_blank" rel="noopener noreferrer">${esc(event.location)} · ${esc(event.place)}</a>` : `${esc(event.location)} · ${esc(event.place)}`}</small>
           <h3>${esc(event.title)}</h3>
           <p>${esc(event.description)}</p>
           <a target="_self" class="more" href="./evenements.html">Voir l’évènement →</a>
